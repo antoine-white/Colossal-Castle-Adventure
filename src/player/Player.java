@@ -1,6 +1,6 @@
 package player;
 
-public class Player {
+public class Player implements ItemReceiver{
 
 	private Weapon activeWeapon;
 	private Lamp LAMP;
@@ -24,5 +24,9 @@ public class Player {
 
 	public int getHp() {
 		return this.hp;
+	}
+
+	public boolean receiveItem(TakeableItem tItem){
+
 	}
 }

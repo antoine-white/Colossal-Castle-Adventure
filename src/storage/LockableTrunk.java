@@ -92,5 +92,9 @@ public class LockableTrunk extends Trunk implements lockable {
 			return super.takeItem(ItemStr);
 		}
 	}
+
+	public boolean receiveItem(TakeableItem tItem){
+		
+	}
 	
 }

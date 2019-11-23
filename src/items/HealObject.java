@@ -3,6 +3,7 @@ package items;
 public class HealObject extends TakeableItem {
 
 	private static int DEFAULT_VOLUME;
+	private static int DEFAULT_HP_HEALED;
 	private int NB_HP_HEALED;
 
 	/**
@@ -11,6 +12,7 @@ public class HealObject extends TakeableItem {
 	 * @param name
 	 */
 	public HealObject(int nbHPHealed, String name) {
+		super(name, DEFAULT_VOLUME, "");
 		// TODO - implement HealObject.HealObject
 		throw new UnsupportedOperationException();
 	}
@@ -25,7 +27,6 @@ public class HealObject extends TakeableItem {
 	 * @param name
 	 */
 	public HealObject(String name) {
-		// TODO - implement HealObject.HealObject
-		throw new UnsupportedOperationException();
+		this(HealObject.DEFAULT_HP_HEALED, name);
 	}
 }
