@@ -1,8 +1,9 @@
-package exit;
+package storage;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class StairsIT{
+public class LockableTrunkIT {
+    
 
 }

@@ -3,7 +3,7 @@ package exit;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class LockedWindow extends Window implements lockable {
+public class LockedWindowIT{
 
 
 }
