@@ -4,22 +4,18 @@ public class Bag extends Storage {
 
 	private static int BAG_CAPACITY;
 
+	/**
+	 * create a new Bag with Bag.BAG_CAPACITY capacity
+	 */
 	public Bag() {
-		// TODO - implement Bag.Bag
-		throw new UnsupportedOperationException();
-	}
-
-	public void addItem() {
-		// TODO - implement Bag.addItem
-		throw new UnsupportedOperationException();
+		super(Bag.BAG_CAPACITY);
 	}
 
 	/**
 	 * 
-	 * @param Itemstr
+	 * @param capacity the capacity of the new Bag
 	 */
-	public Item getOffItem(String Itemstr) {
-		// TODO - implement Bag.getOffItem
-		throw new UnsupportedOperationException();
+	public Bag(int capacity){
+		super(capacity);
 	}
 }
