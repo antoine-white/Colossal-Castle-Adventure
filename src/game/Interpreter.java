@@ -13,7 +13,7 @@ public class Interpreter {
 	 * 
 	 * @param str
 	 */
-	private void interpret(string str) {
+	private void interpret(String str) {
 		// TODO - implement Interpreter.interpret
 		throw new UnsupportedOperationException();
 	}

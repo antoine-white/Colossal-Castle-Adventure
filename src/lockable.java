@@ -6,9 +6,9 @@ public interface lockable {
 
 	/**
 	 * 
-	 * @param parameter
+	 * @param key
 	 */
-	boolean unlock(Key parameter);
+	abstract boolean unlock(Key key);
 
-	boolean getIsLocked();
+	abstract boolean getIsLocked();
 }

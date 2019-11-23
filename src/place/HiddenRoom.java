@@ -2,7 +2,7 @@ package place;
 
 public class HiddenRoom extends Room {
 
-	private static string DEFAULT_DESCRIPTION;
+	private static String DEFAULT_DESCRIPTION;
 
 	/**
 	 * 
@@ -12,7 +12,7 @@ public class HiddenRoom extends Room {
 	 * @param paints
 	 * @param ennemies
 	 */
-	public HiddenRoom(string name, int level, Storage[] storages, TalkPaint[] paints, Ennemy[] ennemies) {
+	public HiddenRoom(String name, int level, Storage[] storages, TalkPaint[] paints, Ennemy[] ennemies) {
 		// TODO - implement HiddenRoom.HiddenRoom
 		throw new UnsupportedOperationException();
 	}

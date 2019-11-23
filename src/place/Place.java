@@ -4,27 +4,27 @@ import java.util.*;
 
 public abstract class Place {
 
-	private string name;
+	private String name;
 	private Collection<Exit> EXITS;
 
 	/**
 	 * 
 	 * @param name
 	 */
-	public Place(string name) {
+	public Place(String name) {
 		// TODO - implement Place.Place
 		throw new UnsupportedOperationException();
 	}
 
-	public string getName() {
+	public String getName() {
 		return this.name;
 	}
 
 	/**
 	 * 
-	 * @param string
+	 * @param String
 	 */
-	public Place getPlaceFromString(int string) {
+	public Place getPlaceFromString(int String) {
 		// TODO - implement Place.getPlaceFromString
 		throw new UnsupportedOperationException();
 	}

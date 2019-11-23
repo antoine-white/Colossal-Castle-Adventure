@@ -17,7 +17,7 @@ public class Game {
 	 * 
 	 * @param filename
 	 */
-	public Game(string filename) {
+	public Game(String filename) {
 		// TODO - implement Game.Game
 		throw new UnsupportedOperationException();
 	}
@@ -26,7 +26,7 @@ public class Game {
 	 * 
 	 * @param filename
 	 */
-	private void createCastleFromFile(string filename) {
+	private void createCastleFromFile(String filename) {
 		// TODO - implement Game.createCastleFromFile
 		throw new UnsupportedOperationException();
 	}

@@ -2,24 +2,24 @@ package items;
 
 public abstract class Item {
 
-	private string NAME;
+	private String NAME;
 
 	/**
 	 * 
 	 * @param name
 	 * @param description
 	 */
-	public Item(string name, string description) {
+	public Item(String name, String description) {
 		// TODO - implement Item.Item
 		throw new UnsupportedOperationException();
 	}
 
-	public string getNAME() {
+	public String getNAME() {
 		// TODO - implement Item.getNAME
 		throw new UnsupportedOperationException();
 	}
 
-	public string toString() {
+	public String toString() {
 		// TODO - implement Item.toString
 		throw new UnsupportedOperationException();
 	}

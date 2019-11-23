@@ -14,7 +14,7 @@ public enum Command {
 	 * 
 	 * @param c
 	 */
-	public static string toStr(Command c) {
+	public static String toStr(Command c) {
 		// TODO - implement Command.toStr
 		throw new UnsupportedOperationException();
 	}

@@ -2,7 +2,7 @@ package interactions;
 
 public class TalkSkeleton extends Skeleton implements Talkable {
 
-	private static string DEFAULT_DIALOG;
+	private static String DEFAULT_DIALOG;
 
 	public TalkSkeleton() {
 		// TODO - implement TalkSkeleton.TalkSkeleton

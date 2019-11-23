@@ -8,7 +8,7 @@ public abstract class Key extends TakeableItem {
 	 * 
 	 * @param name
 	 */
-	public Key(string name) {
+	public Key(String name) {
 		// TODO - implement Key.Key
 		throw new UnsupportedOperationException();
 	}

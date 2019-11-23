@@ -2,8 +2,8 @@ package place;
 
 public interface describable {
 
-	string DESCRIPTION = "";
+	String DESCRIPTION = "";
 
-	string readDescription();
+	String readDescription();
 
 }

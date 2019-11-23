@@ -2,7 +2,7 @@ package exit;
 
 public class Door extends Exit {
 
-	public string toString() {
+	public String toString() {
 		// TODO - implement Door.toString
 		throw new UnsupportedOperationException();
 	}

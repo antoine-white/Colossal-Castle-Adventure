@@ -10,7 +10,7 @@ public abstract class Weapon extends TakeableItem {
 	 * 
 	 * @param descrition
 	 */
-	public Weapon(string descrition) {
+	public Weapon(String descrition) {
 		// TODO - implement Weapon.Weapon
 		throw new UnsupportedOperationException();
 	}
@@ -20,7 +20,7 @@ public abstract class Weapon extends TakeableItem {
 	 * @param damage
 	 * @param descrition
 	 */
-	public Weapon(int damage, string descrition) {
+	public Weapon(int damage, String descrition) {
 		// TODO - implement Weapon.Weapon
 		throw new UnsupportedOperationException();
 	}

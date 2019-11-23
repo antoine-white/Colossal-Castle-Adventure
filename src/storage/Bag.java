@@ -18,7 +18,7 @@ public class Bag extends Storage {
 	 * 
 	 * @param Itemstr
 	 */
-	public Item getOffItem(string Itemstr) {
+	public Item getOffItem(String Itemstr) {
 		// TODO - implement Bag.getOffItem
 		throw new UnsupportedOperationException();
 	}

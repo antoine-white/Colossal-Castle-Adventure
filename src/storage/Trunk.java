@@ -1,22 +1,24 @@
 package storage;
 
+import items.TakeableItem;
+
 public class Trunk extends Storage {
 
+	private static int DEFAULT_CAP_TRUNK = 20;
 	/**
 	 * 
-	 * @param capacity
+	 * @param capacity the capacity of the new Trunk
 	 */
 	public Trunk(int capacity) {
-		// TODO - implement Trunk.Trunk
-		throw new UnsupportedOperationException();
+		super(capacity);
 	}
 
 	/**
-	 * 
-	 * @param ItemStr
+	 * create a new Trunk with Trunk.DEFAULT_CAP_TRUNK capacity
 	 */
-	public Item takeItem(string ItemStr) {
-		// TODO - implement Trunk.takeItem
-		throw new UnsupportedOperationException();
+	public Trunk() {
+		this(Trunk.DEFAULT_CAP_TRUNK);
 	}
+
+	
 }

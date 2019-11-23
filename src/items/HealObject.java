@@ -10,7 +10,7 @@ public class HealObject extends TakeableItem {
 	 * @param nbHPHealed
 	 * @param name
 	 */
-	public HealObject(int nbHPHealed, string name) {
+	public HealObject(int nbHPHealed, String name) {
 		// TODO - implement HealObject.HealObject
 		throw new UnsupportedOperationException();
 	}
@@ -24,7 +24,7 @@ public class HealObject extends TakeableItem {
 	 * 
 	 * @param name
 	 */
-	public HealObject(string name) {
+	public HealObject(String name) {
 		// TODO - implement HealObject.HealObject
 		throw new UnsupportedOperationException();
 	}

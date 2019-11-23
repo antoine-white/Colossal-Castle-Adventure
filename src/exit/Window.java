@@ -2,7 +2,7 @@ package exit;
 
 public class Window extends Exit {
 
-	public string toString() {
+	public String toString() {
 		// TODO - implement Window.toString
 		throw new UnsupportedOperationException();
 	}

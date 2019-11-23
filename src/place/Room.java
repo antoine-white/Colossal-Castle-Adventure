@@ -18,7 +18,7 @@ public class Room extends Place implements describable {
 	 * @param paints
 	 * @param ennemies
 	 */
-	public Room(string description, string name, int level, Storage[] storages, TalkPaint[] paints, Ennemy[] ennemies) {
+	public Room(String description, String name, int level, Storage[] storages, TalkPaint[] paints, Ennemy[] ennemies) {
 		// TODO - implement Room.Room
 		throw new UnsupportedOperationException();
 	}
@@ -27,7 +27,7 @@ public class Room extends Place implements describable {
 	 * 
 	 * @param lamp
 	 */
-	public string search(boolean lamp) {
+	public String search(boolean lamp) {
 		// TODO - implement Room.search
 		throw new UnsupportedOperationException();
 	}
@@ -44,12 +44,12 @@ public class Room extends Place implements describable {
 	 * 
 	 * @param storage
 	 */
-	public Item[] getItemsFromStorage(string storage) {
+	public Item[] getItemsFromStorage(String storage) {
 		// TODO - implement Room.getItemsFromStorage
 		throw new UnsupportedOperationException();
 	}
 
-	public string talkToPaint() {
+	public String talkToPaint() {
 		// TODO - implement Room.talkToPaint
 		throw new UnsupportedOperationException();
 	}
@@ -59,7 +59,7 @@ public class Room extends Place implements describable {
 	 * @param storage
 	 * @param item
 	 */
-	public Item getItemFromStorage(string storage, string item) {
+	public Item getItemFromStorage(String storage, String item) {
 		// TODO - implement Room.getItemFromStorage
 		throw new UnsupportedOperationException();
 	}

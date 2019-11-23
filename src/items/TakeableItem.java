@@ -1,4 +1,4 @@
-package interactions;
+package items;
 
 public abstract class TakeableItem extends Item {
 
@@ -13,10 +13,12 @@ public abstract class TakeableItem extends Item {
 	 * 
 	 * @param name
 	 * @param vol
-	 * @param descrition
+	 * @param description
 	 */
-	public TakeableItem(string name, int vol, string descrition) {
+	public TakeableItem(String name, int vol, String description) {
+		super(name, description);
 		// TODO - implement TakeableItem.TakeableItem
 		throw new UnsupportedOperationException();
 	}
+	
 }
