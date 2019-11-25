@@ -6,27 +6,47 @@ public abstract class Weapon extends TakeableItem {
 	private static int DEFAULT_DAMAGE;
 	private static int DEFAULT_VOLUME;
 
-	/**
-	 * 
-	 * @param descrition
-	 */
-	public Weapon(String descrition) {
-		// TODO - implement Weapon.Weapon
-		throw new UnsupportedOperationException();
+        
+        /**
+         * 
+         * @param name
+         * @param description 
+         */
+	public Weapon(String name, String description) {
+            super(name, description);
+            this.damage = DEFAULT_DAMAGE;
+            
 	}
 
-	/**
-	 * 
-	 * @param damage
-	 * @param descrition
-	 */
-	public Weapon(int damage, String descrition) {
-		// TODO - implement Weapon.Weapon
-		throw new UnsupportedOperationException();
-	}
+        /**
+         * 
+         * @param VOLUME
+         * @param name
+         * @param description 
+         */
+        public Weapon(int VOLUME, String name, String description) {
+            super(VOLUME, name, description);
+            this.damage = DEFAULT_DAMAGE;
+        }
+        
+        /**
+         * 
+         * @param damage
+         * @param VOLUME
+         * @param name
+         * @param description 
+         */
+        public Weapon(int damage, int VOLUME, String name, String description) {
+            super(VOLUME, name, description);
+            this.damage = damage;
+        }
+        
 
-	public int attack() {
-		// TODO - implement Weapon.attack
-		throw new UnsupportedOperationException();
+	/**
+         * 
+         * @return 
+         */
+	public int attack() { // A FAIRE 
+            return this.damage; 
 	}
 }

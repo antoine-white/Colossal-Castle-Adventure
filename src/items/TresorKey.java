@@ -1,9 +1,14 @@
 package items;
 
 public class TresorKey extends TrunkKey {
-
-	public TresorKey() {
-		// TODO - implement TresorKey.TresorKey
-		throw new UnsupportedOperationException();
-	}
+    
+        /**
+         * 
+         * @param name
+         * @param description 
+         */
+        public TresorKey(String name, String description) {
+            super(name, description);
+        }
+        
 }

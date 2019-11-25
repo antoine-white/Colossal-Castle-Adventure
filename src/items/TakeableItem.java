@@ -4,21 +4,33 @@ public abstract class TakeableItem extends Item {
 
 	private int VOLUME;
 
-	public int getVOLUME() {
-		// TODO - implement TakeableItem.getVOLUME
-		throw new UnsupportedOperationException();
+        /**
+         * 
+         * @return 
+         */
+	public int getVOLUME() {	
+            return this.VOLUME; 
 	}
-
-	/**
-	 * 
-	 * @param name
-	 * @param vol
-	 * @param description
-	 */
-	public TakeableItem(String name, int vol, String description) {
-		super(name, description);
-		// TODO - implement TakeableItem.TakeableItem
-		throw new UnsupportedOperationException();
-	}
+        
+        /**
+         * 
+         * @param name
+         * @param description 
+         */
+	public TakeableItem(String name, String description) {
+            super(name, description);
+        }
+        
+        /**
+         * 
+         * @param VOLUME
+         * @param name
+         * @param description 
+         */
+        public TakeableItem(int VOLUME, String name, String description) {
+            super(name, description);
+            this.VOLUME = VOLUME;
+        }
+        
 	
 }

@@ -7,26 +7,33 @@ public class HealObject extends TakeableItem {
 	private int NB_HP_HEALED;
 
 	/**
-	 * 
-	 * @param nbHPHealed
-	 * @param name
-	 */
-	public HealObject(int nbHPHealed, String name) {
-		super(name, DEFAULT_VOLUME, "");
-		// TODO - implement HealObject.HealObject
-		throw new UnsupportedOperationException();
-	}
-
+         * 
+         * @param NB_HP_HEALED
+         * @param VOLUME
+         * @param name
+         * @param description 
+         */
+	public HealObject(int NB_HP_HEALED, int VOLUME, String name, String description) {
+            super(VOLUME, name, description);
+            this.NB_HP_HEALED = NB_HP_HEALED;
+        }
+        
+        /**
+         * 
+         * @param NB_HP_HEALED
+         * @param name
+         * @param description 
+         */
+        public HealObject(int NB_HP_HEALED, String name, String description) {
+            super(DEFAULT_VOLUME, name, description);
+            this.NB_HP_HEALED = NB_HP_HEALED;
+        }
+    
+        /**
+         * 
+         * @return 
+         */
 	public int getNB_HP_HEALED() {
-		// TODO - implement HealObject.getNB_HP_HEALED
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param name
-	 */
-	public HealObject(String name) {
-		this(HealObject.DEFAULT_HP_HEALED, name);
+            return NB_HP_HEALED; 
 	}
 }

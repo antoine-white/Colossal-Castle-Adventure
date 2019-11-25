@@ -4,23 +4,47 @@ public class Lamp extends Item {
 
 	private boolean isOn;
 
-	public Lamp() {
-		// TODO - implement Lamp.Lamp
-		throw new UnsupportedOperationException();
-	}
-
+        /**
+         * 
+         * @param name
+         * @param description 
+         */
+	public Lamp(String name, String description) {
+            super(name, description);
+            this.isOn = false; 
+        }
+        
+        /**
+         * 
+         * @param isOn
+         * @param name
+         * @param description 
+         */
+        public Lamp(boolean isOn, String name, String description) {
+            super(name, description);
+            this.isOn = isOn;
+        }
+          
+        /**
+         * 
+         * @return 
+         */
 	public boolean getIsOn() {
-		return this.isOn;
+            return this.isOn;
 	}
 
+        /**
+         * 
+         */
 	public void switchOnLamp() {
-		// TODO - implement Lamp.switchOnLamp
-		throw new UnsupportedOperationException();
+            this.isOn = true; 
 	}
-
+        
+        /**
+         * 
+         */
 	public void switchOffLamp() {
-		// TODO - implement Lamp.switchOffLamp
-		throw new UnsupportedOperationException();
+            this.isOn = false; 
 	}
 
 }

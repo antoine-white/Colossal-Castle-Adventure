@@ -2,8 +2,12 @@ package items;
 
 public class TrunkKey extends Key {
 
-	public TrunkKey() {
-		// TODO - implement TrunkKey.TrunkKey
-		throw new UnsupportedOperationException();
-	}
+        /**
+         * 
+         * @param name
+         * @param description 
+         */
+	public TrunkKey(String name, String description) {
+            super(name, description);
+        }
 }
