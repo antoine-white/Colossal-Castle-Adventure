@@ -15,7 +15,7 @@ public enum Command {
 		throw new UnsupportedOperationException();
 	}
 
-	public static Command strToCmd(String str) {
+	public static Command strtoCmd(String str) {
 		// TODO - implement Command.toStr
 		throw new UnsupportedOperationException();
 	}
