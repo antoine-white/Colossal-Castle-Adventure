@@ -5,9 +5,9 @@ public class TrunkKey extends Key {
         /**
          * 
          * @param name
-         * @param description 
+         * @param description
          */
-	public TrunkKey(String name, String description) {
-            super(name, description);
+        public TrunkKey(String name, String description) {
+                super(name, description);
         }
 }

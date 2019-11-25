@@ -2,7 +2,7 @@ package items;
 
 public class Axe extends Weapon {
 
-	private static int DEFAULT_DAMAGE;
+	private static final int DEFAULT_DAMAGE = 20;
         
         /**
          * 
@@ -12,10 +12,19 @@ public class Axe extends Weapon {
          * @param description 
          */
 	public Axe(int damage, int VOLUME, String name, String description) {
-            super(DEFAULT_DAMAGE, VOLUME, name, description);
+            super(damage, VOLUME, name, description);
         }
 
-       
+       /**
+         * 
+         * @param VOLUME
+         * @param name
+         * @param description 
+         */
+	public Axe(int VOLUME, String name, String description) {
+            this(Axe.DEFAULT_DAMAGE,VOLUME,name,description);
+        }
+                
         
         
         

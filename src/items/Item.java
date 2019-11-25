@@ -2,7 +2,7 @@ package items;
 
 import place.Describable;
 
-public abstract class Item implements Describable{
+public abstract class Item implements Describable {
 
 	private final String NAME;
 	private final String DESCRIPTION;
@@ -13,19 +13,19 @@ public abstract class Item implements Describable{
 	 * @param description
 	 */
 	public Item(String name, String description) {
-		this.NAME = name; 
+		this.NAME = name;
 		this.DESCRIPTION = description;
 	}
-        
-        /**
-         * 
-         * @return 
-         */
-	public String getNAME() {               
-        return this.NAME;                         
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getNAME() {
+		return this.NAME;
 	}
 
-	public String readDescription(){
+	public String readDescription() {
 		return this.DESCRIPTION;
 	}
 }
