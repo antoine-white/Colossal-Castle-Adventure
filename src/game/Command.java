@@ -10,12 +10,18 @@ public enum Command {
 	SEARCH,
 	SEARCH_EXITS;
 
-	/**
-	 * 
-	 * @param c
-	 */
 	public static String toStr(Command c) {
 		// TODO - implement Command.toStr
+		throw new UnsupportedOperationException();
+	}
+
+	public static boolean hasCorrectParameters(Command c, int nbParam){
+		// TODO - implement it
+		throw new UnsupportedOperationException();
+	}
+
+	public static String getHelp(){
+		// TODO - implement it
 		throw new UnsupportedOperationException();
 	}
 
