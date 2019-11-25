@@ -23,4 +23,8 @@ public abstract class Item {
 		// TODO - implement Item.toString
 		throw new UnsupportedOperationException();
 	}
+
+	public void test(){
+		
+	}
 }
