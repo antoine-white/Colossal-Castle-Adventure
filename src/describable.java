@@ -1,6 +1,6 @@
 package place;
 
-public interface describable {
+public interface Describable {
 
 	String DESCRIPTION = "";
 

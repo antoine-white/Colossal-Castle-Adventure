@@ -1,8 +1,11 @@
 package items;
 
-public abstract class Item {
+import place.Describable;
+
+public abstract class Item implements Describable{
 
 	private final String NAME;
+	private final String DESCRIPTION;
 
 	/**
 	 * 
@@ -10,9 +13,8 @@ public abstract class Item {
 	 * @param description
 	 */
 	public Item(String name, String description) {
-                this.NAME = name; 
-                System.out.println("C'est objet est " + description);
-		throw new UnsupportedOperationException();
+		this.NAME = name; 
+		this.DESCRIPTION = description;
 	}
         
         /**
@@ -20,16 +22,10 @@ public abstract class Item {
          * @return 
          */
 	public String getNAME() {               
-            return NAME; 
-                           
+        return this.NAME;                         
 	}
-        
-        /**
-         * 
-         * @return 
-         */
-	public String toString() {
-		// TODO - implement Item.toString
-		throw new UnsupportedOperationException();
+
+	public String readDescription(){
+		return this.DESCRIPTION;
 	}
 }
