@@ -2,10 +2,39 @@ package interactions;
 
 public class TalkArmor extends Armor implements Talkable {
 
-	private static String DEFAULT_DIALOG;
+       
+	private final static String DEFAULT_DIALOG = "Je vais te tuer"; 
+        private final String DIALOG; 
+	
+        
+        /**
+         * 
+         * @param hp
+         * @param damage 
+         */
+        public TalkArmor(int hp, int damage) {
+            super(hp, damage);
+            this.DIALOG = TalkArmor.DEFAULT_DIALOG; 
+        }
 
-	public TalkArmor() {
-		// TODO - implement TalkArmor.TalkArmor
-		throw new UnsupportedOperationException();
-	}
+        /**
+         * 
+         * @return 
+         */    
+        @Override
+        public String talk() {
+            return this.DIALOG; 
+        }
+
+        /**
+         * 
+         * @return 
+         */
+        @Override
+        public int attack() {
+            this.talk(); 
+            return super.attack(); 
+        }
+        
+        
 }

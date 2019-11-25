@@ -2,7 +2,7 @@ package interactions;
 
 public interface Talkable {
 
-	String dialog = "";
+	String DIALOG = "";
 
-	void talk();
+	String talk();
 }
