@@ -2,7 +2,7 @@ package items;
 
 public abstract class Item {
 
-	private String NAME;
+	private final String NAME;
 
 	/**
 	 * 
@@ -10,18 +10,26 @@ public abstract class Item {
 	 * @param description
 	 */
 	public Item(String name, String description) {
-		// TODO - implement Item.Item
+                this.NAME = name; 
+                System.out.println("C'est objet est " + description);
 		throw new UnsupportedOperationException();
 	}
-
-	public String getNAME() {
-		// TODO - implement Item.getNAME
-		throw new UnsupportedOperationException();
+        
+        /**
+         * 
+         * @return 
+         */
+	public String getNAME() {               
+            return NAME; 
+                           
 	}
-
+        
+        /**
+         * 
+         * @return 
+         */
 	public String toString() {
 		// TODO - implement Item.toString
 		throw new UnsupportedOperationException();
 	}
-
 }
