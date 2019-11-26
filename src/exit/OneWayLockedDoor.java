@@ -1,33 +1,53 @@
 package exit;
 
-public class OneWayLockedDoor extends OneWayDoor implements lockable {
+import items.DoorKey;
+import items.Key;
+import place.Place;
+import projet.Lockable;
 
-	/**
-	 * 
-	 * @param actualPlace
-	 * @param lampOn
-	 */
-	public Place getNextPlace(Place actualPlace, boolean lampOn) {
-		// TODO - implement OneWayLockedDoor.getNextPlace
-		throw new UnsupportedOperationException();
-	}
+public class OneWayLockedDoor extends OneWayDoor implements Lockable {
 
-	/**
-	 * 
-	 * @param beforePlace
-	 * @param p2
-	 */
-	public OneWayLockedDoor(Place beforePlace, Place p2) {
-		// TODO - implement OneWayLockedDoor.OneWayLockedDoor
-		throw new UnsupportedOperationException();
-	}
+    private boolean isLocked;
+    
+    /**
+     * 
+     * @param beforePlace
+     * @param P2 
+     */
+    public OneWayLockedDoor(Place beforePlace, Place P2) {
+        super(beforePlace, P2);
+	this.isLocked = true;
+    }
+    
+    /**
+     * 
+     * @param k
+     * @return 
+     */    
+    @Override
+    public boolean unlock(Key k) {
+        if (k instanceof DoorKey) {
+            this.unlock();
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * 
+     */
+    protected void unlock() {
+	this.isLocked = false;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    @Override
+    public boolean getIsLocked() {
+        return this.isLocked;
+    }
 
-	/**
-	 * 
-	 * @param parameter
-	 */
-	public boolean unlock(Key parameter) {
-		// TODO - implement OneWayLockedDoor.unlock
-		throw new UnsupportedOperationException();
-	}
 }
