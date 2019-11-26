@@ -1,5 +1,7 @@
 package exit;
 
+import place.Place;
+
 public class Window extends Exit {
 
 	public String toString() {
@@ -13,7 +15,6 @@ public class Window extends Exit {
 	 * @param P2
 	 */
 	public Window(Place P1, Place P2) {
-		// TODO - implement Window.Window
-		throw new UnsupportedOperationException();
+            super(P1, P2);
 	}
 }
