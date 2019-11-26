@@ -1,38 +1,47 @@
 package exit;
 
-public class LockedWindow extends Window implements lockable {
+import items.DoorKey;
+import items.Key;
+import items.TakeableItem;
+import place.Place;
+import projet.Lockable;
 
-	/**
-	 * 
-	 * @param P1
-	 * @param P2
-	 */
-	public LockedWindow(Place P1, Place P2) {
-		// TODO - implement LockedWindow.LockedWindow
-		throw new UnsupportedOperationException();
-	}
+public class LockedWindow extends Window implements Lockable {
 
-	/**
-	 * 
-	 * @param parameter
-	 */
-	public boolean unlock(Key parameter) {
-		// TODO - implement LockedWindow.unlock
-		throw new UnsupportedOperationException();
-	}
+    private boolean isLocked;
+    
+    /**
+     * 
+     * @param P1
+     * @param P2
+     */
+    public LockedWindow(Place P1, Place P2) {
+        super(P1, P2);
+        this.isLocked = true;
+    }
 
-	/**
-	 * 
-	 * @param actualPlace
-	 * @param lampOn
-	 */
-	public Place getNextPlace(Place actualPlace, boolean lampOn) {
-		// TODO - implement LockedWindow.getNextPlace
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * @param k
+     */
+    public boolean unlock(Key k) {
+        if (k instanceof DoorKey) {
+            this.unlock();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-	public void operation() {
-		// TODO - implement LockedWindow.operation
-		throw new UnsupportedOperationException();
-	}
+    /**
+    * unlock the Door
+    */
+    protected void unlock() {
+	this.isLocked = false;
+    }
+    
+    @Override
+    public boolean getIsLocked() {
+        return this.isLocked;
+    }
+
 }
