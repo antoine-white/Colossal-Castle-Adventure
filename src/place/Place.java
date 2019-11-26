@@ -28,4 +28,8 @@ public abstract class Place {
 		// TODO - implement Place.getPlaceFromString
 		throw new UnsupportedOperationException();
 	}
+
+	public Collection<Exit> getEXITS() {
+		return EXITS;
+	}
 }

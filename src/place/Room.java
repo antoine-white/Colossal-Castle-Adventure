@@ -63,4 +63,8 @@ public class Room extends Place implements describable {
 		// TODO - implement Room.getItemFromStorage
 		throw new UnsupportedOperationException();
 	}
+
+	public Collection<storage> getStorages(){
+		return this.storages;
+	}
 }
