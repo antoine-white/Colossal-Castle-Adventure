@@ -1,35 +1,56 @@
 package place;
 
+import exit.Exit;
 import java.util.*;
 
 public abstract class Place {
 
-	private String name;
-	private Collection<Exit> EXITS;
+    private String name;
+    private Collection<Exit> EXITS;
+    private String description;
 
-	/**
-	 * 
-	 * @param name
-	 */
-	public Place(String name) {
-		// TODO - implement Place.Place
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * 
+     * @param name
+     */
+    public Place(String name, String description) {
+        this.name = name;
+        this.description = description;
+        this.EXITS = new ArrayList<>();
+    }
+    
+    
 
-	public String getName() {
+    /**
+     *
+     * @return
+     */
+    public String getName() {
 		return this.name;
 	}
+        
+    /**
+     *
+     * @return
+     */
+    public Collection<Exit> getExit(){
+            return this.EXITS;
+        }
+    
+    /**
+     *
+     * @param e
+     */
+    public void setExit(Exit e){
+            this.EXITS.add(e);
+    }
 
-	/**
-	 * 
-	 * @param String
-	 */
-	public Place getPlaceFromString(int String) {
-		// TODO - implement Place.getPlaceFromString
-		throw new UnsupportedOperationException();
-	}
-
-	public Collection<Exit> getEXITS() {
-		return EXITS;
-	}
+    /**
+     * 
+     * @param String
+     */
+    public Place getPlaceFromString(int String) {
+    	// TODO - implement Place.getPlaceFromString
+    	throw new UnsupportedOperationException();
+    }
 }
