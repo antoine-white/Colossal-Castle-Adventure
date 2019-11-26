@@ -9,7 +9,7 @@ import items.*;
 /*
  * GameGenerator
  */
-public static class CastleGenerator {
+public class CastleGenerator {
 
     /**
      * generate a default game 
