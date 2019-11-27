@@ -53,6 +53,7 @@ public abstract class Place {
             this.EXITS.add(e);
     }
 
+<<<<<<< HEAD
     
     /**
      * 
@@ -69,4 +70,18 @@ public abstract class Place {
         }
         return res;
     }
+=======
+	/**
+	 * 
+	 * @param String
+	 */
+	public Place getPlaceFromString(int String) {
+		// TODO - implement Place.getPlaceFromString
+		throw new UnsupportedOperationException();
+	}
+
+	public Collection<Exit> getEXITS(boolean lampOn) {
+		return stream.collect(this.EXITS.stream().filter( (Exit e) -> {return lampOn || not(e instanceof SecretExit);} ));
+	}
+>>>>>>> master
 }

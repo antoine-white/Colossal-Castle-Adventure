@@ -1,9 +1,12 @@
 package game;
 
 import java.util.*;
+
 import items.*;
+import place.Room;
+import exit.*;
 import player.Player;
-import storage.Bag;
+import storage.*;
 
 public class Game {
 
@@ -11,29 +14,49 @@ public class Game {
 	private final Player PLAYER;
 	private final List<Room> ROOMS;
 	private Room playerActualRoom;
+	private Scanner scanner;
+	/*public static void main(String[] args) {
+		Game g = new Game();
+		g.runGame();
+	}*/
 
 	public Game() {
-		this.ROOMS = CastleGenerator();
+		this.ROOMS = CastleGenerator.generateCastle();
 		this.PLAYER = new Player(new Lamp(),new Bag());
-		this.isGameOver = false;
+		this.isGameOver = false;	
+		this.scanner = new Scanner(System.in);
 	}
 
 	public Game(String path) {
-		this.ROOMS = CastleGenerator(path);
+		this.ROOMS = CastleGenerator.generateCastle(path);
 		this.PLAYER = new Player(new Lamp(),new Bag());
 		this.isGameOver = false;
+		this.scanner = new Scanner(System.in);
 	}
-	
-	private void quitGame(){
+
+	public void quitGame(){
 		this.isGameOver = true;
 	}
 
-	private void runGame() {
-		// TODO - implement Game.runGame
-		throw new UnsupportedOperationException();
+	public void runGame() {
+		do {
+			//TODO : asked to type a command
+			Interpreter.interpreter(this,this.scanner.nextLine());
+			this.testGameOver();
+		} while (!this.isGameOver);
 	}
 
-	private boolean assertArg(Command c,int nbArg){
+	public void testGameOver(){
+		if ( ! this.isGameOver) {
+			this.isGameOver = this.PLAYER.getHp() < 0;//TODO : test if the player has the tresor
+		}
+	}
+
+	public void newRoomEntered(Room newRoom){
+		this.playerActualRoom = newRoom;
+	}
+
+	/*private boolean assertArg(Command c,int nbArg){
 		if(Command.hasCorrectParameters(c, nbArg)){
 			return true;
 		} else {
@@ -51,7 +74,11 @@ public class Game {
 				break;
 			case LOOK:
 				if (assertArg(command, nbArg)){
-					this.look(args.get(0));
+					if (args.size() == 1) {
+						this.look(args.get(0));
+					} else {
+						this.look();
+					}					
 				}
 				break;
 			case TAKE:
@@ -85,29 +112,13 @@ public class Game {
 				// TODO : error message
 				break;
 		}
+	}*/
+
+	public boolean playerLampIsOn(){
+		return this.PLAYER.getLampIsOn();
 	}
 
-	private void go(String placeStr){
-
-	}
-
-	private void look(String itemStr){
-
-	}
-
-	private void take(String itemStr){
-		
-	}
-
-	private void use(List<String> args){
-		
-	}
-
-	private void search(){
-		
-	}
-
-	private void searchExits(){
-		
+	public Room getPlayerActualRoom(){
+		return this.playerActualRoom;
 	}
 }

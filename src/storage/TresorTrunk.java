@@ -1,6 +1,6 @@
 package storage;
 
-import items.TakeableItem;
+import items.*;
 
 public class TresorTrunk extends LockableTrunk {
 

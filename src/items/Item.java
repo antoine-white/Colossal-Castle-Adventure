@@ -16,7 +16,7 @@ public abstract class Item implements Describable {
 		this.NAME = name;
 		this.DESCRIPTION = description;
 	}
-
+	
 	/**
 	 * 
 	 * @return
