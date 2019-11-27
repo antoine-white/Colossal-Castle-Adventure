@@ -1,70 +1,67 @@
 package place;
 
-import java.util.*;
 
-public class Room extends Place implements describable {
+import interactions.Ennemy;
+import interactions.TalkPaint;
+import storage.Storage;
 
-	private Collection<Storage> storages;
-	private Ennemy ennemy;
-	private TalkPaint talkPaints;
-	private int level;
+public class Room extends Place implements Describable {
 
-	/**
-	 * 
-	 * @param description
-	 * @param name
-	 * @param level
-	 * @param storages
-	 * @param paints
-	 * @param ennemies
-	 */
-	public Room(String description, String name, int level, Storage[] storages, TalkPaint[] paints, Ennemy[] ennemies) {
-		// TODO - implement Room.Room
-		throw new UnsupportedOperationException();
-	}
+    private Storage storage;
+    private Ennemy ennemy;
+    private TalkPaint talkPaints;
+    private int level;
+    private String description;
+    
+    /**
+     * 
+     * @param description
+     * @param name
+     * @param level
+     * @param store
+     * @param paints
+     * @param ennemies 
+     */
+    public Room(String description, String name, int level, 
+        Storage store, TalkPaint paints, Ennemy ennemies) {
+        super(name);
+        this.level = level;
+        this.talkPaints = paints;
+        this.ennemy = ennemies;
+        this.storage = store;
+        this.description = description;
+    }
 
-	/**
-	 * 
-	 * @param lamp
-	 */
-	public String search(boolean lamp) {
-		// TODO - implement Room.search
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * 
+     * @return 
+     */
+    public Storage getStorage() {
+        return this.storage;
+    }
 
-	public Ennemy getEnnemy() {
-		return this.ennemy;
-	}
+    /**
+     *
+     * @return
+     */
+    public Ennemy getEnnemy() {
+        return this.ennemy;
+    }
 
-	public int getLevel() {
-		return this.level;
-	}
+    /**
+     *
+     * @return
+     */
+    public int getLevel() {
+    	return this.level;
+    }
 
-	/**
-	 * 
-	 * @param storage
-	 */
-	public Item[] getItemsFromStorage(String storage) {
-		// TODO - implement Room.getItemsFromStorage
-		throw new UnsupportedOperationException();
-	}
-
-	public String talkToPaint() {
-		// TODO - implement Room.talkToPaint
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param storage
-	 * @param item
-	 */
-	public Item getItemFromStorage(String storage, String item) {
-		// TODO - implement Room.getItemFromStorage
-		throw new UnsupportedOperationException();
-	}
-
-	public Collection<storage> getStorages(){
-		return this.storages;
-	}
+    /**
+     * 
+     * @return 
+     */
+    @Override
+    public String readDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

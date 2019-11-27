@@ -3,11 +3,11 @@ package exit;
 import items.DoorKey;
 import items.Key;
 import place.Place;
-import projet.Lockable;
+import place.Lockable;
 
 public class OneWayLockedDoor extends OneWayDoor implements Lockable {
 
-    private boolean isLocked;
+    private boolean isLock;
     
     /**
      * 
@@ -16,7 +16,7 @@ public class OneWayLockedDoor extends OneWayDoor implements Lockable {
      */
     public OneWayLockedDoor(Place beforePlace, Place P2) {
         super(beforePlace, P2);
-	this.isLocked = true;
+	this.isLock = true;
     }
     
     /**
@@ -38,7 +38,7 @@ public class OneWayLockedDoor extends OneWayDoor implements Lockable {
      * 
      */
     protected void unlock() {
-	this.isLocked = false;
+	this.isLock = false;
     }
     
     /**
@@ -47,7 +47,7 @@ public class OneWayLockedDoor extends OneWayDoor implements Lockable {
      */
     @Override
     public boolean getIsLocked() {
-        return this.isLocked;
+        return this.isLock;
     }
 
 }

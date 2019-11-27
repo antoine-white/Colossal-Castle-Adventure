@@ -1,33 +1,53 @@
 package exit;
 
-public class LockedDoor extends Door implements lockable {
+import items.DoorKey;
+import items.Key;
+import place.Place;
+import place.Lockable;
 
-	/**
-	 * 
-	 * @param P1
-	 * @param P2
-	 */
-	public LockedDoor(Place P1, Place P2) {
-		// TODO - implement LockedDoor.LockedDoor
-		throw new UnsupportedOperationException();
-	}
+public class LockedDoor extends Door implements Lockable {
 
-	/**
-	 * 
-	 * @param parameter
-	 */
-	public boolean unlock(Key parameter) {
-		// TODO - implement LockedDoor.unlock
-		throw new UnsupportedOperationException();
-	}
+    
+    private boolean isLocked;
+    
+    /**
+     * @param P1
+     * @param P2
+     */
+    public LockedDoor(Place P1, Place P2) {
+        super(P1, P2);
+        this.isLocked = true;
+    }
+    
+    /**
+     * 
+     * @param k
+     * @return 
+     */
+    @Override
+    public boolean unlock(Key k) {
+        if (k instanceof DoorKey) {
+            this.unlock();
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+    * unlock the Door
+    */
+    protected void unlock() {
+	this.isLocked = false;
+    }
+        
+    /**
+     * 
+     * @return 
+     */
+    @Override
+    public boolean getIsLocked() {
+        return this.isLocked;
+    }
 
-	/**
-	 * 
-	 * @param actualPlace
-	 * @param lampOn
-	 */
-	public Place getNextPlace(Place actualPlace, boolean lampOn) {
-		// TODO - implement LockedDoor.getNextPlace
-		throw new UnsupportedOperationException();
-	}
 }

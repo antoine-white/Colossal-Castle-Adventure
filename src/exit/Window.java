@@ -4,11 +4,6 @@ import place.Place;
 
 public class Window extends Exit {
 
-	public String toString() {
-		// TODO - implement Window.toString
-		throw new UnsupportedOperationException();
-	}
-
 	/**
 	 * 
 	 * @param P1
