@@ -10,6 +10,7 @@ public abstract class Place {
     private Collection<Exit> EXITS;
 
     /**
+     * Constructor
      * 
      * @param name 
      */
@@ -20,68 +21,39 @@ public abstract class Place {
 
     /**
      *
-     * @return
+     * @return le nom de la place
      */
     public String getName() {
 	return this.name;
     }
     
     /**
-     *
-     * @param lampOn
-     * @return
+     * 
+     * @param lampOn regarde si la lampe est allumé pour savoir si on voit les sorties secrettes
+     * @return la Map<String,Exit> de sortie de la piece
      */
-    private Collection<Exit> getExits(boolean lampOn){
+    public Map<String,Exit> getExits(boolean lampOn){
+        Map<String,Exit> tmp = new HashMap<>();
         if(lampOn){
-            return this.EXITS;
+            for(Exit e : this.EXITS){
+                tmp.put(e.getNextPlace(this).name, e);
+            }
         } else {
-            Collection<Exit> res = new ArrayList<>();
             for(Exit e : this.EXITS){
                 if (!(e instanceof SecretExit)){
-                    res.add(e);
+                    tmp.put(e.getNextPlace(this).name, e);
                 }
             }
-            return res;
+            
         }
+        return tmp;
     }
     
     /**
      *
-     * @param e
+     * @param e ajoute une sortie à la place
      */
     public void setExit(Exit e){
             this.EXITS.add(e);
     }
-
-<<<<<<< HEAD
-    
-    /**
-     * 
-     * @param s
-     * @param lampOn
-     * @return 
-     */
-    public Map<String,Exit> getPlaceFromString(String s, boolean lampOn) {
-        Collection<Exit> ext = getExits(lampOn);
-    	Map<String,Exit> res = new HashMap<>();
-        int i;
-        for (i=0; i < ext.size(); i++){
-            res.put("",ext.get(i));
-        }
-        return res;
-    }
-=======
-	/**
-	 * 
-	 * @param String
-	 */
-	public Place getPlaceFromString(int String) {
-		// TODO - implement Place.getPlaceFromString
-		throw new UnsupportedOperationException();
-	}
-
-	public Collection<Exit> getEXITS(boolean lampOn) {
-		return stream.collect(this.EXITS.stream().filter( (Exit e) -> {return lampOn || not(e instanceof SecretExit);} ));
-	}
->>>>>>> master
 }
