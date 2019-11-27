@@ -4,6 +4,15 @@ public class Lamp extends Item {
 
     private boolean isOn;
     private final static boolean DEFAULT_STATE = false;
+    private final static String  DEFAULT_NAME = "Lamp";
+    private final static String DEFAULT_DESCRIPTION = "A Lamp that allows you to see hidden things...";
+
+    /**
+     * 
+     */
+    public Lamp(){
+        this(Lamp.DEFAULT_NAME, Lamp.DEFAULT_DESCRIPTION);
+    }
 
     /**
      * 

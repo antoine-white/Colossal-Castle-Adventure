@@ -29,7 +29,7 @@ public abstract class Place {
 		throw new UnsupportedOperationException();
 	}
 
-	public Collection<Exit> getEXITS() {
-		return EXITS;
+	public Collection<Exit> getEXITS(boolean lampOn) {
+		return stream.collect(this.EXITS.stream().filter( (Exit e) -> {return lampOn || not(e instanceof SecretExit);} ));
 	}
 }
