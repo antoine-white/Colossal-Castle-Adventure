@@ -2,8 +2,6 @@ package place;
 
 public interface Lockable{
 
-	boolean isLocked = false;
-
 	/**
 	 * 
 	 * @param key
