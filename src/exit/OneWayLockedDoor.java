@@ -1,7 +1,5 @@
 package exit;
 
-import items.DoorKey;
-import items.Key;
 import place.Place;
 import place.Lockable;
 
@@ -21,23 +19,9 @@ public class OneWayLockedDoor extends OneWayDoor implements Lockable {
     
     /**
      * 
-     * @param k
-     * @return 
-     */    
-    @Override
-    public boolean unlock(Key k) {
-        if (k instanceof DoorKey) {
-            this.unlock();
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
-    /**
-     * 
      */
-    protected void unlock() {
+    @Override
+    public void unlock() {
 	this.isLock = false;
     }
     
