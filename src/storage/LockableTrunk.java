@@ -25,19 +25,7 @@ public class LockableTrunk extends Trunk implements lockable {
 		this.isLocked = true;
 	}
 
-	/**
-	 * 
-	 * @param key the key to unlock the trunk, it only works with TrunkKey
-	 * @return if the Trunk was successfully unlock
-	 */
-	public boolean unlock(Key key) {
-		if (key instanceof TrunkKey) {
-			this.unlock();
-			return true;
-		} else {
-			return false;
-		}
-	}
+
 	/**
 	 * unlock the Trunk
 	 */
@@ -118,20 +106,4 @@ public class LockableTrunk extends Trunk implements lockable {
 			return super.takeItem(ItemStr);
 		}
 	}
-
-	/**
-	 * 
-	 * @param tItem the item that should be applied to the instance
-	 * @return true if it is a TrunkKey and unlock the Trunck, returns 
-	 * false otherwise 
-	 */
-	public boolean receiveItem(TakeableItem tItem){
-		if (tItem instanceof TrunkKey) {
-			this.unlock((Key)tItem);
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 }
