@@ -17,12 +17,16 @@ public enum Command {
 
 	public static Command strToCmd(String str) {
 		switch (str) {
-			case :
-		
-			default:
-				break;
+			case "GO": return GO;
+			case "HELP": return HELP;
+			case "LOOK": return LOOK;
+			case "TAKE": return TAKE;
+			case "QUIT": return QUIT;
+			case "USE": return USE;
+			case "SEARCH": return SEARCH;
+			case "SEARCH_EXITS": return SEARCH_EXITS;
+			default : return null;
 		}
-		return GO;
 	}
 
 	public static boolean hasCorrectParameters(Command c, int nbParam){
@@ -35,12 +39,12 @@ public enum Command {
 		throw new UnsupportedOperationException();
 	}
 	//TODO:
-	public static void interpret(Game g,String string){
+	public static void runCommand(Game g, Command c, String[] str){
 		
 	}
 
 	public static void go(Game g, String placeStr){
-		List<Exit> exits = g.getPlayerActualRoom().getEXITS();
+		List<Exit> exits = g.getPlayerActualRoom().getEXITS(g.playerLampIsOn());
 		Exit[] es = stream.collect(exits.stream().filter((e)->{return Objects.equals(e.getNextPlace(g.getPlayerActualRoom(),true).getName(),placeStr);}).toArray());
 		if (es.length == 0) {
 			// TODO: error message

@@ -40,7 +40,7 @@ public class Game {
 	public void runGame() {
 		do {
 			//TODO : asked to type a command
-			Interpreter.Interpreter(this,this.scanner.nextLine());
+			Interpreter.interpreter(this,this.scanner.nextLine());
 			this.testGameOver();
 		} while (!this.isGameOver);
 	}
@@ -112,6 +112,10 @@ public class Game {
 				break;
 		}
 	}*/
+
+	public boolean playerLampIsOn(){
+		return this.PLAYER.getLampIsOn();
+	}
 
 	public Room getPlayerActualRoom(){
 		return this.playerActualRoom;
