@@ -1,5 +1,7 @@
 package exit;
 
+import place.Place;
+
 public class OneWayDoor extends Door {
 
 	/**
@@ -7,24 +9,15 @@ public class OneWayDoor extends Door {
 	 * He cannot take the door the other way
 	 */
 	private Place beforePlace;
-
-	/**
-	 * 
-	 * @param actualPlace
-	 * @param lampOn
-	 */
-	public Place getNextPlace(Place actualPlace, boolean lampOn) {
-		// TODO - implement OneWayDoor.getNextPlace
-		throw new UnsupportedOperationException();
-	}
-
-	/**
+        
+        
+    	/**
 	 * 
 	 * @param beforePlace
-	 * @param p2
+	 * @param P2
 	 */
-	public OneWayDoor(Place beforePlace, Place p2) {
-		// TODO - implement OneWayDoor.OneWayDoor
-		throw new UnsupportedOperationException();
+	public OneWayDoor(Place beforePlace, Place P2) {
+            super(beforePlace, P2);
 	}
+
 }

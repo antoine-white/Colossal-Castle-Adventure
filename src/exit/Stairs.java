@@ -1,5 +1,7 @@
 package exit;
 
+import place.Place;
+
 public class Stairs extends Exit {
 
 	/**
@@ -8,7 +10,6 @@ public class Stairs extends Exit {
 	 * @param P2
 	 */
 	public Stairs(Place P1, Place P2) {
-		// TODO - implement Stairs.Stairs
-		throw new UnsupportedOperationException();
+            super(P1, P2);
 	}
 }
