@@ -14,18 +14,18 @@ public class CastleGenerator {
     /**
      * generate a default game 
      */
-    public static List<Room> generateCastle(){
+    public static Room generateCastle(){
         // TODO :
-        return new ArrayList<>();
+        return null;
     }
 
     /**
      * Genarate a game from a file
      * @param path
      */
-    public static List<Room> generateCastle(String path){
+    public static Room generateCastle(String path){
         // TODO :
-        return new ArrayList<>();
+        return null;
     }
 
 }
