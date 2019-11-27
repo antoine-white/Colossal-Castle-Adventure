@@ -1,6 +1,7 @@
 package items;
 
 import player.*;
+
 public class HealObject extends TakeableItem {
 
     private static final int DEFAULT_VOLUME = 5;
@@ -50,12 +51,11 @@ public class HealObject extends TakeableItem {
     @Override
     public boolean use(Object o) {
         try {
-            ((Player)o).heal(this.getNB_HP_HEALED());
+            ((Player) o).heal(this.getNB_HP_HEALED());
         } catch (Exception e) {
             return false;
         }
         return true;
     }
 
-    
 }
