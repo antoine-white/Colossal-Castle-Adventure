@@ -1,6 +1,7 @@
 package exit;
 
 import java.util.*;
+import place.Place;
 
 public abstract class Exit {
 
@@ -12,17 +13,22 @@ public abstract class Exit {
 	 * @param P2
 	 */
 	public Exit(Place P1, Place P2) {
-		// TODO - implement Exit.Exit
-		throw new UnsupportedOperationException();
+            this.PLACES = new ArrayList<>();
+            this.PLACES.add(P1);
+            this.PLACES.add(P2);
 	}
 
 	/**
 	 * 
 	 * @param actualPlace
-	 * @param lampOn
+         * @return 
 	 */
-	public Place getNextPlace(Place actualPlace, boolean lampOn) {
-		// TODO - implement Exit.getNextPlace
-		throw new UnsupportedOperationException();
+	public Place getNextPlace(Place actualPlace) {
+            for(Place p : this.PLACES){
+                if (p != actualPlace){
+                    return p;
+                }
+            }
+            return null;
 	}
 }
