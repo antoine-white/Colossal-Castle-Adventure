@@ -1,32 +1,30 @@
 package place;
 
 
+import interfaces.Describable;
 import interactions.Ennemy;
-import interactions.TalkPaint;
 import storage.Storage;
 
 public class Room extends Place implements Describable {
 
     private Storage storage;
     private Ennemy ennemy;
-    private TalkPaint talkPaints;
     private int level;
     private String description;
     
     /**
+     * Constructor
      * 
-     * @param description
+     * @param description 
      * @param name
      * @param level
      * @param store
-     * @param paints
      * @param ennemies 
      */
     public Room(String description, String name, int level, 
-        Storage store, TalkPaint paints, Ennemy ennemies) {
+        Storage store, Ennemy ennemies) {
         super(name);
         this.level = level;
-        this.talkPaints = paints;
         this.ennemy = ennemies;
         this.storage = store;
         this.description = description;
@@ -34,7 +32,7 @@ public class Room extends Place implements Describable {
 
     /**
      * 
-     * @return 
+     * @return le coffre s'il y en a un dans la piece
      */
     public Storage getStorage() {
         return this.storage;
@@ -42,7 +40,7 @@ public class Room extends Place implements Describable {
 
     /**
      *
-     * @return
+     * @return l'ennemie s'il y en a un dans la piece
      */
     public Ennemy getEnnemy() {
         return this.ennemy;
@@ -50,7 +48,7 @@ public class Room extends Place implements Describable {
 
     /**
      *
-     * @return
+     * @return le niveau de l'étage où se trouve la room
      */
     public int getLevel() {
     	return this.level;
@@ -58,10 +56,10 @@ public class Room extends Place implements Describable {
 
     /**
      * 
-     * @return 
+     * @return the description of the room
      */
     @Override
     public String readDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.description;
     }
 }
