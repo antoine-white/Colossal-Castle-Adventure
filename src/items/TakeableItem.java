@@ -23,4 +23,6 @@ public abstract class TakeableItem extends Item {
         this.VOLUME = VOLUME;
     }
 
+    abstract public boolean use(Object o);
+
 }

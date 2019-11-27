@@ -8,7 +8,7 @@ public interface lockable extends ItemReceiver{
 	 * 
 	 * @param key
 	 */
-	abstract boolean unlock(Key key);
+	abstract boolean unlock();
 
 	abstract boolean getIsLocked();
 }
