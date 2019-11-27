@@ -1,9 +1,9 @@
 package player;
 import items.*; 
 import storage.Bag; 
-import main.ItemReceiver; 
 
-public class Player implements ItemReceiver{
+
+public class Player implements Healable{
 
 	private Weapon activeWeapon;
 	private Lamp LAMP;
@@ -39,9 +39,10 @@ public class Player implements ItemReceiver{
 	}
 
 	/**
-	 * 
-	 * @param damage
-	 */
+         * 
+         * @param damage
+         * @return 
+         */
 	public int attacked(int damage) {
             this.hp -= damage; 
             return this.hp; 
@@ -59,13 +60,23 @@ public class Player implements ItemReceiver{
             return this.LAMP.getIsOn(); 
         }
         
+        @Override
+        public void heal(int nbHp){
+            this.hp += nbHp;        
+        }
+        
+        public void switchWeapon(Weapon w){
+            if(this.activeWeapon == null){
+                this.activeWeapon = w; 
+            } else {
+                this.BAG.addItem(this.activeWeapon); 
+                this.activeWeapon = w;                         
+            }
+        }
         
         
-        /**
-         * 
-         * @param tItem
-         * @return 
-         */
+        
+        /*
         @Override
         public boolean receiveItem(TakeableItem tItem) {
             if(tItem instanceof HealObject && this.hp < this.MAX_HP){
@@ -78,6 +89,12 @@ public class Player implements ItemReceiver{
                 return false; 
             }
         }
+        */
 
+   
+        
+        
+
+        
         
 }
