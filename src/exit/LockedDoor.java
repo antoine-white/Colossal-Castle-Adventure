@@ -1,14 +1,11 @@
 package exit;
 
-import items.DoorKey;
-import items.Key;
 import place.Place;
 import place.Lockable;
 
 public class LockedDoor extends Door implements Lockable {
 
-    
-    private boolean isLocked;
+    private boolean isLock;
     
     /**
      * @param P1
@@ -16,38 +13,24 @@ public class LockedDoor extends Door implements Lockable {
      */
     public LockedDoor(Place P1, Place P2) {
         super(P1, P2);
-        this.isLocked = true;
-    }
-    
-    /**
-     * 
-     * @param k
-     * @return 
-     */
-    @Override
-    public boolean unlock(Key k) {
-        if (k instanceof DoorKey) {
-            this.unlock();
-            return true;
-        } else {
-            return false;
-        }
+        this.isLock = true;
     }
     
     /**
     * unlock the Door
     */
-    protected void unlock() {
-	this.isLocked = false;
+    @Override
+    public void unlock() {
+	this.isLock = false;
     }
-        
+    
     /**
      * 
      * @return 
      */
     @Override
     public boolean getIsLocked() {
-        return this.isLocked;
+        return this.isLock;
     }
 
 }
