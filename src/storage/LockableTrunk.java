@@ -2,9 +2,10 @@ package storage;
 
 import java.util.Collection;
 
+import main;
 import items.*;
 
-public class LockableTrunk extends Trunk implements Lockable {
+public class LockableTrunk extends Trunk implements Lockable,CanTakeItem {
 
 	private boolean isLocked;
 
@@ -32,6 +33,7 @@ public class LockableTrunk extends Trunk implements Lockable {
 	protected void unlock() {
 		this.isLocked = false;
 	}
+
 	/**
 	 * 
 	 * @return if the Trunk is locked
