@@ -55,6 +55,10 @@ public class Player implements ItemReceiver{
             return this.hp;
 	}
 
+        public boolean getLampIsOn(){
+            return this.LAMP.getIsOn(); 
+        }
+        
         
         
         /**
