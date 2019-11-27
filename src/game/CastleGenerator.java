@@ -14,7 +14,7 @@ public static class CastleGenerator {
     /**
      * generate a default game 
      */
-    public static List<Place> generateCastle(){
+    public static List<Room> generateCastle(){
         // TODO :
         return new ArrayList<>();
     }
@@ -23,7 +23,7 @@ public static class CastleGenerator {
      * Genarate a game from a file
      * @param path
      */
-    public static List<Place> generateCastle(String path){
+    public static List<Room> generateCastle(String path){
         // TODO :
         return new ArrayList<>();
     }
