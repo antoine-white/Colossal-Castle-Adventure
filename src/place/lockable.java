@@ -1,8 +1,8 @@
 package place;
 
-public interface lockable extends ItemReceiver{
+public interface lockable{
 
-	boolean isLocked;
+	boolean isLocked = false;
 
 	/**
 	 * 
