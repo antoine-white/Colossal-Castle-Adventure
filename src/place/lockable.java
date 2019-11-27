@@ -1,6 +1,6 @@
 package place;
 
-public interface lockable{
+public interface Lockable{
 
 	boolean isLocked = false;
 

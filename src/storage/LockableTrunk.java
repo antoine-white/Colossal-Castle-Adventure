@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import items.*;
 
-public class LockableTrunk extends Trunk implements lockable {
+public class LockableTrunk extends Trunk implements Lockable {
 
 	private boolean isLocked;
 
