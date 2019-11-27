@@ -1,9 +1,15 @@
-package exit;
+package items;
+
+
 
 public class DoorKey extends Key {
 
-	public DoorKey() {
-		// TODO - implement DoorKey.DoorKey
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * 
+     * @param name
+     * @param description 
+     */
+    public DoorKey(String name, String description) {
+            super(name, description);
+    }
 }
