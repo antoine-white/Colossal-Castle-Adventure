@@ -2,13 +2,12 @@ package exit;
 
 import items.DoorKey;
 import items.Key;
-import items.TakeableItem;
 import place.Place;
-import projet.Lockable;
+import place.Lockable;
 
 public class LockedWindow extends Window implements Lockable {
 
-    private boolean isLocked;
+    private boolean isLock;
     
     /**
      * 
@@ -17,12 +16,15 @@ public class LockedWindow extends Window implements Lockable {
      */
     public LockedWindow(Place P1, Place P2) {
         super(P1, P2);
-        this.isLocked = true;
+        this.isLock = true;
     }
 
     /**
+     * 
      * @param k
+     * @return 
      */
+    @Override
     public boolean unlock(Key k) {
         if (k instanceof DoorKey) {
             this.unlock();
@@ -36,12 +38,12 @@ public class LockedWindow extends Window implements Lockable {
     * unlock the Door
     */
     protected void unlock() {
-	this.isLocked = false;
+	this.isLock = false;
     }
     
     @Override
     public boolean getIsLocked() {
-        return this.isLocked;
+        return this.isLock;
     }
 
 }

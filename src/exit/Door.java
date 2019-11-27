@@ -1,11 +1,8 @@
 package exit;
 
-public class Door extends Exit {
+import place.Place;
 
-	public String toString() {
-		// TODO - implement Door.toString
-		throw new UnsupportedOperationException();
-	}
+public class Door extends Exit {
 
 	/**
 	 * 
@@ -13,7 +10,13 @@ public class Door extends Exit {
 	 * @param P2
 	 */
 	public Door(Place P1, Place P2) {
-		// TODO - implement Door.Door
-		throw new UnsupportedOperationException();
+            super(P1, P2);
 	}
+
+        @Override
+        public String toString() {
+            return "Door{" + '}';
+        }
+
+        
 }
