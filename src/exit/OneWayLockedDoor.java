@@ -15,7 +15,7 @@ public class OneWayLockedDoor extends OneWayDoor implements Lockable {
      */
     public OneWayLockedDoor(Place beforePlace, Place P2) {
         super(beforePlace, P2);
-	this.isLock = true;
+	    this.isLock = true;
     }
     
     /**
