@@ -1,7 +1,8 @@
 package exit;
 
 import place.Place;
-import place.Lockable;
+import interfaces.Lockable;
+import items.Key;
 
 public class LockedDoor extends Door implements Lockable {
 
@@ -30,6 +31,7 @@ public class LockedDoor extends Door implements Lockable {
     public void unlock(Key k) {
         if (k instanceof DoorKey) {
             this.unlock();
+        }
     }
     
     /**
