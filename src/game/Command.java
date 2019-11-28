@@ -12,6 +12,9 @@ public enum Command {
 
     private String help;
 
+    Command(String s){
+        this.help = s;
+    }
     public static String toStr(Command c) {
         // TODO - implement Command.toStr
         throw new UnsupportedOperationException();
