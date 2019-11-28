@@ -1,7 +1,8 @@
 package exit;
 
 import place.Place;
-import place.Lockable;
+import interfaces.Lockable;
+import items.Key;
 
 public class OneWayLockedDoor extends OneWayDoor implements Lockable {
 
@@ -25,6 +26,12 @@ public class OneWayLockedDoor extends OneWayDoor implements Lockable {
 	this.isLock = false;
     }
     
+    public void unlock(Key k) {
+        if (k instanceof DoorKey) {
+            this.unlock();
+        }
+    }
+
     /**
      * 
      * @return 
