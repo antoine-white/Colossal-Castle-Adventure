@@ -25,4 +25,6 @@ public class Axe extends Weapon {
     this(Axe.DEFAULT_DAMAGE, VOLUME, name, description);
   }
 
+  
+
 }

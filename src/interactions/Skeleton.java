@@ -14,6 +14,11 @@ public class Skeleton extends Ennemy {
             super(DEFAULT_HP_SKE, DEFAULT_DAMAGE_S);
         }
 
+        @Override
+        public String toString() {
+            return "Skeleton ";
+        }
+
         
 
-    }
+}
