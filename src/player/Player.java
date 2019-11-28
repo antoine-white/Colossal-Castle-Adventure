@@ -1,9 +1,10 @@
 package player;
 
+import interfaces.CanTakeItem;
 import items.*;
 import storage.Bag;
 
-public class Player implements Healable {
+public class Player implements Healable , CanTakeItem{
 
     private Weapon activeWeapon;
     private Lamp LAMP;

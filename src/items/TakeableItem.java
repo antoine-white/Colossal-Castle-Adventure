@@ -1,5 +1,7 @@
 package items;
 
+import interfaces.CanTakeItem;
+
 public abstract class TakeableItem extends Item {
 
     private final int VOLUME;
@@ -23,6 +25,6 @@ public abstract class TakeableItem extends Item {
         this.VOLUME = VOLUME;
     }
 
-    abstract public boolean use(Object o);
+    abstract public boolean use(CanTakeItem o);
 
 }

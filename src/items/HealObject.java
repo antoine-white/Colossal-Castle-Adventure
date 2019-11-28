@@ -1,5 +1,6 @@
 package items;
-//
+
+import interfaces.CanTakeItem;
 import player.*;
 
 public class HealObject extends TakeableItem {
@@ -49,9 +50,9 @@ public class HealObject extends TakeableItem {
     }
 
     @Override
-    public boolean use(Object o) {
+    public boolean use(CanTakeItem o) {
         try {
-            ((Player) o).heal(this.getNB_HP_HEALED());
+            ((Healable) o).heal(this.getNB_HP_HEALED());
         } catch (Exception e) {
             return false;
         }

@@ -1,6 +1,6 @@
 package items;
 
-import place.Describable;
+import interfaces.*;
 
 public abstract class Item implements Describable {
 
