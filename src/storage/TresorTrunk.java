@@ -2,7 +2,7 @@ package storage;
 
 import items.*;
 
-public class TresorTrunk extends LockableTrunk , CanTakeItem {
+public class TresorTrunk extends LockableTrunk implements CanTakeItem {
 
 	/**
 	 * 

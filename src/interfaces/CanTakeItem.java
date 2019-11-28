@@ -1,9 +1,5 @@
 package interfaces;
 
-/**
- *
- * @author mziar01
- */
 public interface CanTakeItem {
     
 }

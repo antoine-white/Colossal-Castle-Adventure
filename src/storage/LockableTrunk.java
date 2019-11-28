@@ -2,8 +2,9 @@ package storage;
 
 import java.util.Collection;
 
-import main;
+import main.*;
 import items.*;
+import interfaces.*;
 
 public class LockableTrunk extends Trunk implements Lockable,CanTakeItem {
 
