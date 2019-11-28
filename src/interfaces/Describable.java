@@ -1,4 +1,4 @@
-package place;
+package interfaces;
 
 public interface Describable {
 
