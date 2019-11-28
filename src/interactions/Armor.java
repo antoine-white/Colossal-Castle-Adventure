@@ -15,22 +15,5 @@ public class Armor extends Ennemy {
             super(DEFAULT_HP_ARMOR, DEFAULT_DAMAGE_ARMOR);
         }
         
-        /**
-         * 
-         * @param damage 
-         */
-        @Override
-        public void attacked(int damage) {
-            super.attacked(damage); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        /**
-         * 
-         * @return 
-         */
-        @Override
-        public int attack() {
-            return super.attack(); //To change body of generated methods, choose Tools | Templates.
-        }
         
 }
