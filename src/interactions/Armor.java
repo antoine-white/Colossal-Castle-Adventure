@@ -14,6 +14,11 @@ public class Armor extends Ennemy {
         public Armor(int hp, int damage) {
             super(DEFAULT_HP_ARMOR, DEFAULT_DAMAGE_ARMOR);
         }
+
+        @Override
+        public String toString() {
+            return "Armor ";
+        }
         
         
 }

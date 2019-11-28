@@ -16,7 +16,7 @@ public class Skeleton extends Ennemy {
 
         @Override
         public String toString() {
-            return "Skeleton ";
+            return "Skeleton "; 
         }
 
         
