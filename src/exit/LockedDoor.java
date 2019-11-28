@@ -24,6 +24,9 @@ public class LockedDoor extends Door implements Lockable {
 	this.isLock = false;
     }
 
+    /**
+     *
+     */
     public void unlock(Key k) {
         if (k instanceof DoorKey) {
             this.unlock();
