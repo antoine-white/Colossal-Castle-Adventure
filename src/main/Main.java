@@ -5,9 +5,8 @@ import game.*;
 public class Main {
 
     public static void main(String[] args) {
-        Printer.initBackground();
-        Printer.printMessage("hello");
-        Printer.printError("ça marche pas");
-        
+        System.out.println("Welcome in our game Collosal Catle Adventure.\n\n");
+        Game g = new Game();
+        g.runGame();        
     }
 }

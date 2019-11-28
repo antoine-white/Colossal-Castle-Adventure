@@ -49,6 +49,7 @@ public class Game {
 	public void runGame() {
 		//TEMP: System.out.println("hello there");
 		do {
+			Printer.printMessage("Enter next command : ");
 			Interpreter.interpreter(this, this.scanner.nextLine());
 			this.testGameOver();
 		} while (!this.isGameOver);

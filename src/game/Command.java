@@ -3,6 +3,8 @@ package game;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import exit.Exit;
+
 public enum Command {
     GO("help go"),
     HELP("help help"),
@@ -49,7 +51,7 @@ public enum Command {
         case HELP:
             return nbParam == 0;
         case LOOK:
-            return nbParam == 1;
+            return nbParam == 0 || nbParam == 1;
         case TAKE:
             return nbParam == 1;
         case QUIT:
@@ -68,7 +70,7 @@ public enum Command {
     public static String getHelp() {
         String returnString = "";
         for(Command c: Command.values()){
-            returnString += c.help;
+            returnString += '\n' + c.help;
         }
         return returnString;
     }
@@ -81,10 +83,10 @@ public enum Command {
             break;
         case HELP:
             // TODO : print it
-            Command.getHelp();
+            Printer.printError(Command.getHelp());
             break;
         case LOOK:
-            if (args.length == 1) {
+            if (args.length == 0) {
                 Command.look(g);
             } else {
                 Command.look(g, args[0]);
@@ -129,8 +131,7 @@ public enum Command {
     }
 
     public static void look(Game g) {
-        // TODO : print it
-        g.getPlayerActualRoom().readDescription();
+        Printer.printMessage(g.getPlayerActualRoom().readDescription());
     }
 
     // TODO:
@@ -155,8 +156,11 @@ public enum Command {
 
     // TODO:
     public static void searchExits(Game g) {
-        g.getPlayerActualRoom().getExits(g.playerLampIsOn());
-        //TODO print the map
+        Printer.printMessage("Exits visible in this room : ");
+        Map<String,Exit> exits = g.getPlayerActualRoom().getExits(g.playerLampIsOn());
+        for (Map.Entry<String, Exit> entry : exits.entrySet()) {
+            Printer.printMessage(entry.getKey());
+        }
     }
 
 }

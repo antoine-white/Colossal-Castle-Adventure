@@ -36,6 +36,6 @@ public class Printer {
      */
     public static void printError(String msg){
         Printer.initBackground();
-        System.out.println("🛑" + Printer.ERROR_COLOR + msg + Printer.RESET);
+        System.out.println("🛑 " + Printer.ERROR_COLOR + msg + Printer.RESET);
     }
 }
