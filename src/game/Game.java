@@ -5,6 +5,7 @@ import java.util.*;
 import items.*;
 import place.Room;
 import exit.*;
+import interactions.Ennemy;
 import player.Player;
 import storage.*;
 
@@ -14,52 +15,88 @@ public class Game {
 	private final Player PLAYER;
 	private Room playerActualRoom;
 	private Scanner scanner;
-	/*public static void main(String[] args) {
-		Game g = new Game();
-		g.runGame();
-	}*/
 
+	/**
+	 * create a new Game with a the default castle see CastleGenerator.generateCastle()
+	 */
 	public Game() {
 		this.playerActualRoom = CastleGenerator.generateCastle();
-		this.PLAYER = new Player(new Lamp(),new Bag());
-		this.isGameOver = false;	
-		this.scanner = new Scanner(System.in);
-	}
-
-	public Game(String path) {
-		this.playerActualRoom = CastleGenerator.generateCastle(path);
-		this.PLAYER = new Player(new Lamp(),new Bag());
+		this.PLAYER = new Player(new Lamp(), new Bag());
 		this.isGameOver = false;
 		this.scanner = new Scanner(System.in);
 	}
 
-	public void quitGame(){
+	/**
+	 * 
+	 * @param path the path of the file the castle is loaded from
+	 */
+	public Game(String path) {
+		this.playerActualRoom = CastleGenerator.generateCastle(path);
+		this.PLAYER = new Player(new Lamp(), new Bag());
+		this.isGameOver = false;
+		this.scanner = new Scanner(System.in);
+	}
+
+	/**
+	 * put isGameOver to true and stoped the game
+	 */
+	public void quitGame() {
 		this.isGameOver = true;
 	}
 
+	/**
+	 * the method where all the game takes place
+	 */
 	public void runGame() {
+		System.out.println("hello there");
 		do {
-			//TODO : asked to type a command
-			Interpreter.interpreter(this,this.scanner.nextLine());
+			Interpreter.interpreter(this, this.scanner.nextLine());
 			this.testGameOver();
 		} while (!this.isGameOver);
 	}
 
-	public void testGameOver(){
-		if ( ! this.isGameOver) {
-			this.isGameOver = this.PLAYER.getHp() < 0;//TODO : test if the player has the tresor
+	/**
+	 * change isGameOver if the player is dead (he has 0 hp or less)
+	 */
+	public void testGameOver() {
+		if (!this.isGameOver) {
+			this.isGameOver = this.PLAYER.getHp() < 0;// TODO : test if the player has the tresor
 		}
 	}
 
-	public void newRoomEntered(Room newRoom){
+	/**
+	 * replace playerActualRoom by newRoom and lauch a combat with
+	 * the ennemy of the newRoom if there is one
+	 * @param newRoom the new room the player has entered
+	 */
+	public void newRoomEntered(Room newRoom) {
 		this.playerActualRoom = newRoom;
+		if (this.playerActualRoom.getEnnemy() != null) {
+			this.handleCombat(this.playerActualRoom.getEnnemy());
+		}
 	}
 
-	public boolean playerLampIsOn(){
+	/**
+	 * 
+	 * @param e the ennemy the player is fighting against
+	 */
+	private void handleCombat(Ennemy e) {
+		//TODO say you enconter a ennemy ,wich ennemy and made him talk
+		do {
+			//TODO : print the ennemy attack you and dealt ENNEMY_DAMAGE you have hp remaining
+			this.PLAYER.attacked(e.attack());
+			if (this.PLAYER.getHp() < 0){
+				//TODO : print you attack the ennemy and dealt you_damage he has hp remaining
+				e.attacked(this.PLAYER.attack());
+			}
+		} while (e.attacked(0) > 0 || this.PLAYER.getHp() > 0);
+	}
+
+	public boolean playerLampIsOn() {
 		return this.PLAYER.getLampIsOn();
 	}
 
-	public Room getPlayerActualRoom(){
+	public Room getPlayerActualRoom() {
 		return this.playerActualRoom;
 	}
 }
