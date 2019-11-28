@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Arrays;
+
 public class Interpreter {
 
 	public static void interpreter(Game g, String str) {

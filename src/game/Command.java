@@ -1,5 +1,7 @@
 package game;
 
+import java.util.List;
+
 public enum Command {
     GO("help go"),
     HELP("help help"),
@@ -14,10 +16,6 @@ public enum Command {
 
     Command(String s){
         this.help = s;
-    }
-    public static String toStr(Command c) {
-        // TODO - implement Command.toStr
-        throw new UnsupportedOperationException();
     }
 
     public static Command strToCmd(String str) {
@@ -136,7 +134,7 @@ public enum Command {
 
     // TODO:
     public static void look(Game g, String itemStorageStr) {
-        List<Storage> storages = g.getPlayerActualRoom().getStorages();
+        
     }
 
     // TODO:
@@ -156,7 +154,7 @@ public enum Command {
 
     // TODO:
     public static void searchExits(Game g) {
-        g.getPlayerActualRoom().getEXITS(g.playerLampIsOn());
+        g.getPlayerActualRoom().getExits(g.playerLampIsOn());
         //TODO print the map
     }
 

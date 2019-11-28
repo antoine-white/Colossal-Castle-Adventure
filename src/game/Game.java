@@ -4,7 +4,6 @@ import java.util.*;
 
 import items.*;
 import place.Room;
-import exit.*;
 import interactions.Ennemy;
 import player.Player;
 import storage.*;
