@@ -1,5 +1,7 @@
 package items;
 
+import interfaces.*;
+
 public abstract class Key extends TakeableItem {
 
     private final static int KEY_VOLUME = 1;
