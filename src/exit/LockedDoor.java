@@ -2,7 +2,7 @@ package exit;
 
 import place.Place;
 import interfaces.Lockable;
-import items.Key;
+import items.*;
 
 public class LockedDoor extends Door implements Lockable {
 
@@ -20,9 +20,8 @@ public class LockedDoor extends Door implements Lockable {
     /**
     * unlock the Door
     */
-    @Override
     public void unlock() {
-	this.isLock = false;
+	    this.isLock = false;
     }
 
     /**

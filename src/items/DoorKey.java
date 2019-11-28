@@ -2,8 +2,9 @@ package items;
 
 public class DoorKey extends Key {
 
-    /**
-     * 
+    /** 
+     * Constructor
+     *
      * @param name
      * @param description
      */
