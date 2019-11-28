@@ -2,7 +2,7 @@ package interactions;
 
 public class TalkSkeleton extends Skeleton implements Talkable {
 
-	private final static String DEFAULT_DIALOG = "MEURS !"; 
+	private final static String DEFAULT_DIALOG = "DIE !"; 
         private final String DIALOG; 
 	
         

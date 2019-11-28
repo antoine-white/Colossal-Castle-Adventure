@@ -3,7 +3,7 @@ package interactions;
 public class TalkArmor extends Armor implements Talkable {
 
        
-	private final static String DEFAULT_DIALOG = "Je vais te tuer"; 
+	private final static String DEFAULT_DIALOG = "I'll kill you"; 
         private final String DIALOG; 
 	
         
