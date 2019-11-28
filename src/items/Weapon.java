@@ -20,16 +20,6 @@ public abstract class Weapon extends TakeableItem {
 
     /**
      * 
-     * @param VOLUME
-     * @param name
-     * @param description
-     */
-    public Weapon(int VOLUME, String name, String description) {
-        super(Weapon.DEFAULT_DAMAGE, VOLUME, name, description);
-    }
-
-    /**
-     * 
      * @param damage
      * @param VOLUME
      * @param name
