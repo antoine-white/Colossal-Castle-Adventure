@@ -1,5 +1,8 @@
 package items;
 
+import interfaces.CanTakeItem;
+import interfaces.CanTakeWeapon;
+
 public abstract class Weapon extends TakeableItem {
 
     private int damage;
@@ -12,7 +15,7 @@ public abstract class Weapon extends TakeableItem {
      * @param description
      */
     public Weapon(String name, String description) {
-        this(Weapon.DEFAULT_VOLUME,name, description);
+        this(Weapon.DEFAULT_VOLUME, name, description);
     }
 
     /**
@@ -22,7 +25,7 @@ public abstract class Weapon extends TakeableItem {
      * @param description
      */
     public Weapon(int VOLUME, String name, String description) {
-        super(Weapon.DEFAULT_DAMAGE,VOLUME, name, description);
+        super(Weapon.DEFAULT_DAMAGE, VOLUME, name, description);
     }
 
     /**
@@ -44,4 +47,18 @@ public abstract class Weapon extends TakeableItem {
     public int attack() {
         return this.damage;
     }
+
+    @Override
+    public boolean use(CanTakeItem o) {
+        try {
+            ((CanTakeWeapon)o).switchWeapon(this); 
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    
+
+
 }
