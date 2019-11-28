@@ -1,15 +1,13 @@
 package items;
 
-
-
 public class DoorKey extends Key {
 
     /**
      * 
      * @param name
-     * @param description 
+     * @param description
      */
     public DoorKey(String name, String description) {
-            super(name, description);
+        super(name, description);
     }
 }
