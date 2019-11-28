@@ -12,4 +12,16 @@ public abstract class Key extends TakeableItem {
     public Key(String name, String description) {
         super(Key.KEY_VOLUME, name, description);
     }
+
+    /**
+     */
+     @Override
+    public boolean use(CanTakeItem o){
+        try {
+            ((Lockable) o).unlock((Key)this);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 }
