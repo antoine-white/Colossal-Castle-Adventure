@@ -1,6 +1,7 @@
 package game;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public enum Command {
     GO("help go"),
@@ -96,7 +97,7 @@ public enum Command {
             g.quitGame();
             break;
         case USE:
-            Command.use(g, Arrays.stream(args).boxed().collect(Collectors.toList()));
+            Command.use(g, Arrays.copyOfRange(args, 1, args.length));
             break;
         case SEARCH:
             Command.search(g);
@@ -143,7 +144,7 @@ public enum Command {
     }
 
     // TODO:
-    public static void use(Game g, List<String> args) {
+    public static void use(Game g, String[] args) {
 
     }
 
