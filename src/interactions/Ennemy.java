@@ -42,9 +42,11 @@ public abstract class Ennemy {
 	/**
 	 * 
 	 * @param damage
+     * @return the number of hp remaining after the attack
 	 */
-	public void attacked(int damage) {  
+	public int attacked(int damage) {  
             this.hp -= damage; 
+            return this.hp;
 	}
 
         
