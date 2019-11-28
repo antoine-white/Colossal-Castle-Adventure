@@ -15,7 +15,7 @@ public abstract class Weapon extends TakeableItem {
      * @param description
      */
     public Weapon(String name, String description) {
-        this(Weapon.DEFAULT_VOLUME, name, description);
+        super(Weapon.DEFAULT_VOLUME, name, description);
     }
 
     /**
