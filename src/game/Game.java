@@ -48,7 +48,7 @@ public class Game {
 	 * the method where all the game takes place
 	 */
 	public void runGame() {
-		System.out.println("hello there");
+		//TEMP: System.out.println("hello there");
 		do {
 			Interpreter.interpreter(this, this.scanner.nextLine());
 			this.testGameOver();
@@ -81,15 +81,19 @@ public class Game {
 	 * @param e the ennemy the player is fighting against
 	 */
 	private void handleCombat(Ennemy e) {
-		//TODO say you enconter a ennemy ,wich ennemy and made him talk
+		Printer.printMessage("⚔ You encontered an ennnemy " + e.toString() + "⚔");
+		//TODO do ennemy toString
 		do {
-			//TODO : print the ennemy attack you and dealt ENNEMY_DAMAGE you have hp remaining
 			this.PLAYER.attacked(e.attack());
-			if (this.PLAYER.getHp() < 0){
-				//TODO : print you attack the ennemy and dealt you_damage he has hp remaining
+			Printer.printMessage("The ennemy attacked you and dealt" + e.attack() + "damage you have " + this.PLAYER.getHp() +"hp remaininig");
+			if (this.PLAYER.getHp() > 0){
+				Printer.printMessage("you attack the ennemy and dealt" + this.PLAYER.attack() + "damage");
 				e.attacked(this.PLAYER.attack());
 			}
 		} while (e.attacked(0) > 0 || this.PLAYER.getHp() > 0);
+		if (this.PLAYER.getHp() < 0){
+			Printer.printMessage("You have slayed the ennemy 💪");
+		}
 	}
 
 	public boolean playerLampIsOn() {
