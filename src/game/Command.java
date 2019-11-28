@@ -1,7 +1,16 @@
 package game;
 
 public enum Command {
-    GO, HELP, LOOK, TAKE, QUIT, USE, SEARCH, SEARCH_EXITS;
+    GO("help go"),
+    HELP("help help"),
+    LOOK("help look"),
+    TAKE("help take"),
+    QUIT("help quit"),
+    USE("help use"),
+    SEARCH("help search"),
+    SEARCH_EXITS("help search exits");
+
+    private String help;
 
     public static String toStr(Command c) {
         // TODO - implement Command.toStr
@@ -55,8 +64,11 @@ public enum Command {
     }
 
     public static String getHelp() {
-        // TODO - implement it
-        throw new UnsupportedOperationException();
+        String returnString = "";
+        for(Command c: Command.values()){
+            returnString += c.help;
+        }
+        return returnString;
     }
 
     // TODO:
@@ -96,6 +108,8 @@ public enum Command {
     }
 
     public static void go(Game g, String placeStr) {
+        //TODO : rewrite this whole mess with the new getExits
+        /*
         List<Exit> exits = g.getPlayerActualRoom().getEXITS(g.playerLampIsOn());
         Exit[] es = stream.collect(exits.stream().filter((e) -> {
             return Objects.equals(e.getNextPlace(g.getPlayerActualRoom(), true).getName(), placeStr);
@@ -109,7 +123,7 @@ public enum Command {
             } else {
                 g.newRoomEntered(newRoom);
             }
-        }
+        }*/
     }
 
     public static void look(Game g) {
@@ -139,7 +153,8 @@ public enum Command {
 
     // TODO:
     public static void searchExits(Game g) {
-
+        g.getPlayerActualRoom().getEXITS(g.playerLampIsOn());
+        //TODO print the map
     }
 
 }
