@@ -65,6 +65,7 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
         this.hp += nbHp;
     }
 
+    @Override
     public void switchWeapon(Weapon w) {
         if (this.activeWeapon == null) {
             this.activeWeapon = w;
