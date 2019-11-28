@@ -2,7 +2,7 @@ package storage;
 
 import items.*;
 
-public class TresorTrunk extends LockableTrunk implements CanTakeItem {
+public class TresorTrunk extends LockableTrunk {
 
 	/**
 	 * 
@@ -15,7 +15,14 @@ public class TresorTrunk extends LockableTrunk implements CanTakeItem {
 	/**
 	 * create a new TresorTrunk with Trunk.DEFAULT_CAP_TRUNK capacity
 	 */
-	public TresorTrunk(){
+	public TresorTrunk() {
 		super();
+	}
+
+	@Override
+	public void unlock(Key key) {
+		if (key instanceof TrunkKey) {
+			super.unlock();			
+		}
 	}
 }

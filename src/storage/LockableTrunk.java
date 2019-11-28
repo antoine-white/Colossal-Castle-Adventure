@@ -2,7 +2,6 @@ package storage;
 
 import java.util.Collection;
 
-import main.*;
 import items.*;
 import interfaces.*;
 
@@ -33,6 +32,13 @@ public class LockableTrunk extends Trunk implements Lockable,CanTakeItem {
 	 */
 	protected void unlock() {
 		this.isLocked = false;
+	}
+
+	@Override
+	public void unlock(Key key){
+		if(key instanceof TrunkKey){
+			this.unlock();
+		}
 	}
 
 	/**
@@ -98,15 +104,6 @@ public class LockableTrunk extends Trunk implements Lockable,CanTakeItem {
 			return false;
 		} else {	
 			return super.removeItem(toRemove);
-		}
-	}
-
-	@Override
-	public TakeableItem takeItem(String ItemStr) {
-		if (this.getIsLocked()) {
-			return false;
-		} else {	
-			return super.takeItem(ItemStr);
 		}
 	}
 }

@@ -1,7 +1,5 @@
 package storage;
 
-import items.TakeableItem;
-
 public class Trunk extends Storage {
 
 	private static int DEFAULT_CAP_TRUNK = 20;
