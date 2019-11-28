@@ -71,7 +71,7 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
         } else {
             this.BAG.addItem(this.activeWeapon);
             this.activeWeapon = w;
-        }
+        } 
     }
 
     /*

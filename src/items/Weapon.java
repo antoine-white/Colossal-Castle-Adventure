@@ -58,7 +58,7 @@ public abstract class Weapon extends TakeableItem {
         return true;
     }
 
-    
+     
 
 
 }
