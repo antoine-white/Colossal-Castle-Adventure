@@ -3,5 +3,5 @@ package game;
  * CommandFunction
  */
 public interface CommandFunction {
-    void method(Game g,String[] args);
+    void runCommand(Game g,String[] args);
 } 

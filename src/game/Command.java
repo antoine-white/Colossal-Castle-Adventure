@@ -52,7 +52,7 @@ public enum Command {
     }
 
     public static void runCommand(Game g, Command c, String[] args) {
-        c.function.method(g,args);
+        c.function.runCommand(g,args);
     }
 
     public static void go(Game g, String placeStr) {
