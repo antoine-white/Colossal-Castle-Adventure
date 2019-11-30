@@ -6,109 +6,53 @@ import java.util.stream.Collectors;
 import exit.Exit;
 
 public enum Command {
-    GO("help go"),
-    HELP("help help"),
-    LOOK("help look"),
-    TAKE("help take"),
+    GO("help go","GO",1,1,(g,args)->Command.go(g,args[0])),
+    HELP("help help","HELP",0,0,(g,args)->Printer.printMessage(Command.getHelp())),
+    LOOK("help look","LOOK",0,0,(g,args)->Command.look(g,args));
+    /*TAKE("help take"),
     QUIT("help quit"),
     USE("help use"),
     SEARCH("help search"),
-    SEARCH_EXITS("help search exits");
+    SEARCH_EXITS("help search exits");*/
+    
+    private final String HELP_STR;
+    private final String COMMAND_STR;
+    private final int MIN_PARAM;
+    private final int MAX_PARAM;
+    private CommandFunction function;
 
-    private String help;
-
-    Command(String s){
-        this.help = s;
+    Command(String hELP_STR, String cOMMAND_STR, int mIN_PARAM, int mAX_PARAM, CommandFunction fct) {
+        this.HELP_STR = hELP_STR;
+        this.COMMAND_STR = cOMMAND_STR;
+        this.MIN_PARAM = mIN_PARAM;
+        this.MAX_PARAM = mAX_PARAM;
+        this.function = fct;
     }
 
     public static Command strToCmd(String str) {
-        switch (str) {
-        case "GO":
-            return GO;
-        case "HELP":
-            return HELP;
-        case "LOOK":
-            return LOOK;
-        case "TAKE":
-            return TAKE;
-        case "QUIT":
-            return QUIT;
-        case "USE":
-            return USE;
-        case "SEARCH":
-            return SEARCH;
-        case "SEARCH_EXITS":
-            return SEARCH_EXITS;
-        default:
-            return null;
+        Command tCommand = null;
+        for(Command c: Command.values()){
+            if ( Objects.equals(c.COMMAND_STR , str) || Objects.equals(c.COMMAND_STR.toLowerCase() , str)) {
+                tCommand = c;
+            }
         }
+        return tCommand;
     }
 
     public static boolean hasCorrectParameters(Command c, int nbParam) {
-        switch (c) {
-        case GO:
-            return nbParam == 1;
-        case HELP:
-            return nbParam == 0;
-        case LOOK:
-            return nbParam == 0 || nbParam == 1;
-        case TAKE:
-            return nbParam == 1;
-        case QUIT:
-            return nbParam == 0;
-        case USE:
-            return nbParam >= 1 && nbParam <= 2;
-        case SEARCH:
-            return nbParam == 0;
-        case SEARCH_EXITS:
-            return nbParam == 0;
-        default:
-            return false;
-        }
+        return nbParam >= c.MIN_PARAM && nbParam <=c.MAX_PARAM;
     }
 
     public static String getHelp() {
         String returnString = "";
         for(Command c: Command.values()){
-            returnString += '\n' + c.help;
+            returnString += '\n' + c.HELP_STR;
         }
         return returnString;
     }
 
-    // TODO:
     public static void runCommand(Game g, Command c, String[] args) {
-        switch (c) {
-        case GO:
-            Command.go(g, args[0]);
-            break;
-        case HELP:
-            // TODO : print it
-            Printer.printError(Command.getHelp());
-            break;
-        case LOOK:
-            if (args.length == 0) {
-                Command.look(g);
-            } else {
-                Command.look(g, args[0]);
-            }
-            break;
-        case TAKE:
-            Command.take(g, args[0]);
-            break;
-        case QUIT:
-            g.quitGame();
-            break;
-        case USE:
-            Command.use(g, Arrays.copyOfRange(args, 1, args.length));
-            break;
-        case SEARCH:
-            Command.search(g);
-            break;
-        case SEARCH_EXITS:
-            Command.searchExits(g);
-            break;
-        default:
-        }
+        c.function.method(g,args);
     }
 
     public static void go(Game g, String placeStr) {
@@ -130,13 +74,13 @@ public enum Command {
         }*/
     }
 
-    public static void look(Game g) {
-        Printer.printMessage(g.getPlayerActualRoom().readDescription());
-    }
-
     // TODO:
-    public static void look(Game g, String itemStorageStr) {
-        
+    public static void look(Game g, String[] itemStr) {
+        if (itemStr.length == 0){
+            Printer.printMessage(g.getPlayerActualRoom().readDescription());
+        } else {
+
+        }
     }
 
     // TODO:
@@ -162,5 +106,7 @@ public enum Command {
             Printer.printMessage(entry.getKey());
         }
     }
+
+    
 
 }
