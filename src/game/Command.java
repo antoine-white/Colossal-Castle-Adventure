@@ -8,12 +8,12 @@ import exit.Exit;
 public enum Command {
     GO("help go","GO",1,1,(g,args)->Command.go(g,args[0])),
     HELP("help help","HELP",0,0,(g,args)->Printer.printMessage(Command.getHelp())),
-    LOOK("help look","LOOK",0,0,(g,args)->Command.look(g,args));
-    /*TAKE("help take"),
-    QUIT("help quit"),
-    USE("help use"),
-    SEARCH("help search"),
-    SEARCH_EXITS("help search exits");*/
+    LOOK("help look","LOOK",0,0,(g,args)->Command.look(g,args)),
+    TAKE("help take : ","TAKE",1,1,(g,args)->Command.take(g,args[0])),
+    QUIT("help quit","QUIT",0,0,(g,args)->Command.quit(g)),
+    USE("help use","USE",1,2,(g,args)->Command.quit(g)),
+    SEARCH("help search","SEARCH",0,0,(g,args)->Command.search(g)),
+    SEARCH_EXITS("help search exits","SEARCH EXITS",0,0,(g,args)->Command.searchExits(g));
     
     private final String HELP_STR;
     private final String COMMAND_STR;
@@ -81,6 +81,10 @@ public enum Command {
         } else {
 
         }
+    }
+
+    public static void quit(Game g){
+        g.quitGame();
     }
 
     // TODO:
