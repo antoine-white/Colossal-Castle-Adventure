@@ -103,12 +103,20 @@ public class CastleGenerator {
         //BedRoom with trunk and no ennemy
         Trunk BedroomTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
         BedroomTrunk.addItem(new Axe(25,5,"Axe","A mighty axe")); 
-        Room Bedroom = new Room("A basic room with a pile of straw as bed","Bedroom",1,BedroomTrunk,null);
+        Room Bedroom = new Room("A basic room with a pile of straw as bed","bedroom",1,BedroomTrunk,null);
+
+
+        //A big empty room with trunk and A MIGHTY ennemy
+        Trunk EmptyRoomTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
+        EmptyRoomTrunk.addItem(new HealObject(45,5,"HealObject","An special item which can heal you after your rude fight")); 
+        Room EmptyRoom = new Room("A big empty room with a big armor","emptyroom",1,EmptyRoomTrunk,new Armor(120,18));
         
         
            /** PORTES **/
         LockedDoor Hallway_DeluxeRoom = new LockedDoor(Hallway,DeluxeRoom);  
         Door Hallway_Bedroom = new Door(Hallway,Bedroom);  
+        Door Hallway_EmptyRoom = new Door(Hallway,EmptyRoom);  
+
         
            /** SORTIES **/ 
             
@@ -118,6 +126,8 @@ public class CastleGenerator {
         Hallway.setExit(Hallway_Bedroom);
         Bedroom.setExit(Hallway_Bedroom);
         
+        Hallway.setExit(Hallway_EmptyRoom);
+        EmptyRoom.setExit(Hallway_EmptyRoom);
         
         
         
