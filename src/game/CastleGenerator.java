@@ -115,7 +115,7 @@ public class CastleGenerator {
            /** PORTES **/
         LockedDoor Hallway_DeluxeRoom = new LockedDoor(Hallway,DeluxeRoom);  
         Door Hallway_Bedroom = new Door(Hallway,Bedroom);  
-        Door Hallway_EmptyRoom = new Door(Hallway,EmptyRoom);  
+        OneWayDoor Hallway_EmptyRoom = new OneWayDoor(Hallway,EmptyRoom);  
 
         
            /** SORTIES **/ 
@@ -127,7 +127,7 @@ public class CastleGenerator {
         Bedroom.setExit(Hallway_Bedroom);
         
         Hallway.setExit(Hallway_EmptyRoom);
-        EmptyRoom.setExit(Hallway_EmptyRoom);
+       // EmptyRoom.setExit(Hallway_EmptyRoom);
         
         
         
