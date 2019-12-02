@@ -28,7 +28,7 @@ public class CastleGenerator {
     }
     
     public static Room generateCastle(){
-        /***************  REZ DE CHAUSSEE DU CHATEAU *******************/
+        /***************************************  REZ DE CHAUSSEE DU CHATEAU *********************************************/
         
         // Piece d'arrivée le hall, sans rien
         Room Entrance = new Room("Castle's Entrance ","entrance",0,null,null); 
@@ -46,7 +46,7 @@ public class CastleGenerator {
 
         // salle de bal avec coffre normal et sans ennemi
         Trunk BalTrunk = new Trunk(); // ------> Clé dans celui la 
-        BalTrunk.addItem(new DoorKey("Key","Key which can open a locked door")); 
+        BalTrunk.addItem(new DoorKey("doorkey","A key which can open a locked door")); 
         Room BallRoom = new Room("Ballroom next the entrance of the castle","ballroom",0,BalTrunk,null); 
 
         // Taverne sans coffre et sans ennemi
@@ -88,6 +88,77 @@ public class CastleGenerator {
         
         Kitchen.setExit(Kitchen_Cellar);
         Cellar.setExit(Kitchen_Cellar);
+        
+        /*****************************************  FIRST FLOOR  **************************************/
+        
+        // Hallway without trunk and ennemy 
+        Room Hallway = new Room("A long hallway","hallway",1,null,null); 
+        
+        // Deluxe Room with locked door with trunk and no ennemy
+        Trunk DeluxeTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
+        DeluxeTrunk.addItem(new TrunkKey("trunkkey","A key which can open a locked trunk")); 
+        Room DeluxeRoom = new Room("A deluxe room which greats and luxury decorations","deluxeroom",1,DeluxeTrunk,null); 
+        
+        
+        //BedRoom with trunk and no ennemy
+    /*    Trunk DeluxeTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
+        DeluxeTrunk.addItem(new TrunkKey("trunkkey","A key which can open a locked trunk")); 
+        Room DeluxeRoom = new Room("A deluxe room which greats and luxury decorations","deluxeroom",1,DeluxeTrunk,null); */
+        
+        
+           /** PORTES **/
+        LockedDoor Hallway_DeluxeRoom = new LockedDoor(Hallway,DeluxeRoom);  
+        
+           /** SORTIES **/ 
+            
+        Hallway.setExit(Hallway_DeluxeRoom);
+        DeluxeRoom.setExit(Hallway_DeluxeRoom);
+        
+        
+        
+        
+        
+        
+        /*** STAIRS *****/
+        Stairs WinterGarden_Hallway = new Stairs(WinterGarden,Hallway); 
+         
+        
+        
+        /** STAIRS' EXITS **/
+        WinterGarden.setExit(WinterGarden_Hallway);         
+        Hallway.setExit(WinterGarden_Hallway); 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
            /** ESCALIERS  **/
         
