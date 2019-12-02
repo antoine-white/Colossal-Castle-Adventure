@@ -1,10 +1,9 @@
 package game;
 
 import java.util.*;
-import interactions.*; 
+import interactions.*;
 import place.*;
 import storage.Trunk;
-import sun.font.StrikeCache;
 import exit.*;
 import items.*;
 
@@ -17,20 +16,6 @@ public class CastleGenerator {
      * generate a default game 
      */
     public static Room generateCastle(){
-        // TODO :
-        return null;
-    }
-
-    /**
-     * Genarate a game from a file
-     * @param path
-     */
-    public static Room generateCastle(String path){
-        // TODO :
-        return null;
-    }
-
-    public CastleGenerator() {
         //                                         DEMANDER A ANTOINE POUR LES STORAGES 
 
         // Initialisation des objets et ennemi ( degat et volume arbitraire)
@@ -80,13 +65,28 @@ public class CastleGenerator {
         // Porte reliant cellier à la cuisine 
         Door Kitchen_Cellar = new Door(Kitchen,Cellar); 
 
+        Entrance.setExit(Entrance_DiningRoom);
+        Entrance.setExit(Entrance_BallRoom);
+        DiningRoom.setExit(Entrance_DiningRoom);
+        DiningRoom.setExit(DiningRoom_Kitchen);
+        BallRoom.setExit(Entrance_BallRoom);
+        BallRoom.setExit(Tavern_BallRoom);
+        Kitchen.setExit(Kitchen_Cellar);
+        Kitchen.setExit(DiningRoom_Kitchen);
+        Cellar.setExit(Kitchen_Cellar);
            /** ESCALIERS  **/
-
-
-
-
+        
+        return Entrance;
     }
 
-    
+    /**
+     * Genarate a game from a file
+     * 
+     * @param path
+     */
+    public static Room generateCastle(String path) {
+        // TODO :
+        return null;
+    }
 
 }
