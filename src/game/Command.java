@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import exit.Exit;
+import interfaces.Lockable;
 import items.*;
 import storage.Storage;
 import place.*;
@@ -59,13 +60,20 @@ public enum Command {
         c.function.runCommand(g,args);
     }
 
-
-    //TO FIX : test key
     public static void go(Game g, String placeStr) {
         Map<String,Exit> exits = g.getPlayerActualRoom().getExits(g.playerLampIsOn());
         for (Map.Entry<String, Exit> exit : exits.entrySet()) {
             if (Objects.equals(exit.getKey(),placeStr)){
-                g.newRoomEntered(exit.getValue().getNextPlace(((Room)g.getPlayerActualRoom())));
+                try {
+                    if(((Lockable)exit.getValue()).getIsLocked()){
+                        Printer.printMessage("This room is Locked");
+                        return; 
+                    } else {
+                        g.newRoomEntered(exit.getValue().getNextPlace(((Room)g.getPlayerActualRoom())));   
+                    }
+                } catch (Exception e) {
+                    g.newRoomEntered(exit.getValue().getNextPlace(((Room)g.getPlayerActualRoom())));   
+                }
                 return;
             }
         }
@@ -109,6 +117,15 @@ public enum Command {
     // TODO:
     public static void search(Game g) {
         Storage tmp = g.getPlayerActualRoom().getStorage();
+        try {
+            if (((Lockable)tmp).getIsLocked()){
+                Printer.printMessage("The Trunk is locked");
+                return;
+            }
+        } catch (Exception e) {
+
+        } 
+
         if (tmp != null) {
             Printer.printMessage("Items in this room : ");
             for (TakeableItem item : tmp.getItems()) {

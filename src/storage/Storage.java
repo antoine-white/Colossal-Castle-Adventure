@@ -59,7 +59,7 @@ public abstract class Storage {
 	 * @return if this item can be added given its volume
 	 */
 	public boolean canAddItem(int itemVol) {
-		return this.CAPACITY <= this.currentVol + itemVol;
+		return this.CAPACITY >= this.currentVol + itemVol;
 	}
 
 	/**

@@ -2,7 +2,7 @@ package storage;
 
 public class Trunk extends Storage {
 
-	private static int DEFAULT_CAP_TRUNK = 20;
+	private static int DEFAULT_CAP_TRUNK = 200;
 	/**
 	 * 
 	 * @param capacity the capacity of the new Trunk
