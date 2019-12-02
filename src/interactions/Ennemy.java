@@ -23,8 +23,6 @@ public abstract class Ennemy {
     public Ennemy(int hp, int damage) {
         this.hp = hp;
         this.damage = damage;
-
-        throw new UnsupportedOperationException();
     }
 
     /**

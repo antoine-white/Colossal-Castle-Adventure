@@ -2,8 +2,8 @@ package interactions;
 
 public class Armor extends Ennemy {
 
-	private static int DEFAULT_HP_ARMOR;
-	private static int DEFAULT_DAMAGE_ARMOR;
+	private static int DEFAULT_HP_ARMOR = 50;
+	private static int DEFAULT_DAMAGE_ARMOR = 5;
 
           
         /**
@@ -12,7 +12,11 @@ public class Armor extends Ennemy {
          * @param damage 
          */
         public Armor(int hp, int damage) {
-            super(DEFAULT_HP_ARMOR, DEFAULT_DAMAGE_ARMOR);
+            super(hp,damage);
+        }
+
+        public Armor(){
+            this(Armor.DEFAULT_HP_ARMOR, Armor.DEFAULT_DAMAGE_ARMOR);
         }
 
         @Override
