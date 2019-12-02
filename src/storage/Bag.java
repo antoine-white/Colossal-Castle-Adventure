@@ -2,7 +2,7 @@ package storage;
 
 public class Bag extends Storage {
 
-	private static int BAG_CAPACITY;
+	private static int BAG_CAPACITY = 40;
 
 	/**
 	 * create a new Bag with Bag.BAG_CAPACITY capacity
