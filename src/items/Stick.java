@@ -12,6 +12,10 @@ public class Stick extends Weapon {
      * @param description
      */
     public Stick(int damage, int VOLUME, String name, String description) {
-        super(DEFAULT_DAMAGE, VOLUME, name, description);
+        super(damage, VOLUME, name, description);
+    }
+    
+    public Stick(int VOLUME, String name, String description){
+        this(Stick.DEFAULT_DAMAGE,VOLUME,name,description);
     }
 }
