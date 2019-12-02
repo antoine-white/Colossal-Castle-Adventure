@@ -108,11 +108,27 @@ public class Game {
 		return this.PLAYER.getHp();
 	}
 
+	public void addItemToBag(TakeableItem takeableItem){
+		this.PLAYER.getBAG().addItem(takeableItem);
+	}
+
 	public Collection<TakeableItem> getBagItems(){
 		return this.PLAYER.getBAG().getItems();
 	}
 
 	public Room getPlayerActualRoom() {
 		return this.playerActualRoom;
+	}
+
+	public Weapon getPlayerWeapon(){
+		return this.PLAYER.getWeapon();
+	}
+
+	public void removeItemBag(TakeableItem tItem){
+		this.PLAYER.getBAG().removeItem(tItem);
+	}
+
+	public boolean useItemOnPlayer(TakeableItem tItem){
+		return tItem.use(this.PLAYER);
 	}
 }

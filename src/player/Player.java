@@ -61,10 +61,14 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
     }
 
     /**
-     * @return the bAG
+     * @return the BAG
      */
     public Bag getBAG() {
         return this.BAG;
+    }
+
+    public Weapon getWeapon(){
+        return this.activeWeapon;
     }
 
     @Override
