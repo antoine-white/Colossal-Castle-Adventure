@@ -3,6 +3,7 @@ package game;
 import java.util.*;
 
 import items.*;
+import place.Place;
 import place.Room;
 import interactions.Ennemy;
 import player.Player;
@@ -60,17 +61,21 @@ public class Game {
 	 */
 	public void testGameOver() {
 		if (!this.isGameOver) {
-			this.isGameOver = this.PLAYER.getHp() < 0;// TODO : test if the player has the tresor
+			if (this.PLAYER.getHp() <= 0){
+				this.isGameOver = true;
+				Printer.printMessage("You are dead 😭😭");
+			}
+			 // TODO : test if the player has the tresor
 		}
 	}
 
 	/**
 	 * replace playerActualRoom by newRoom and lauch a combat with
 	 * the ennemy of the newRoom if there is one
-	 * @param newRoom the new room the player has entered
+	 * @param place the new room the player has entered
 	 */
-	public void newRoomEntered(Room newRoom) {
-		this.playerActualRoom = newRoom;
+	public void newRoomEntered(Place place) {
+		this.playerActualRoom = ((Room)place);
 		if (this.playerActualRoom.getEnnemy() != null) {
 			this.handleCombat(this.playerActualRoom.getEnnemy());
 		}
@@ -81,17 +86,16 @@ public class Game {
 	 * @param e the ennemy the player is fighting against
 	 */
 	private void handleCombat(Ennemy e) {
-		Printer.printMessage("⚔ You encontered an ennnemy " + e.toString() + "⚔");
-		//TODO do ennemy toString
+		Printer.printMessage("⚔ You encontered an ennnemy " + e.toString() + " ⚔");
 		do {
 			this.PLAYER.attacked(e.attack());
-			Printer.printMessage("The ennemy attacked you and dealt" + e.attack() + "damage you have " + this.PLAYER.getHp() +"hp remaininig");
+			Printer.printMessage("The ennemy attacked you and dealt " + e.attack() + " damage you have " + this.PLAYER.getHp() +"hp remaininig");
 			if (this.PLAYER.getHp() > 0){
-				Printer.printMessage("you attack the ennemy and dealt" + this.PLAYER.attack() + "damage");
+				Printer.printMessage("you attack the ennemy and dealt " + this.PLAYER.attack() + " damage");
 				e.attacked(this.PLAYER.attack());
 			}
-		} while (e.attacked(0) > 0 || this.PLAYER.getHp() > 0);
-		if (this.PLAYER.getHp() < 0){
+		} while (e.attacked(0) > 0 && this.PLAYER.getHp() > 0);
+		if (this.PLAYER.getHp() > 0){
 			Printer.printMessage("You have slayed the ennemy 💪");
 		}
 	}
