@@ -4,6 +4,7 @@ import java.util.*;
 import interactions.*;
 import place.*;
 import storage.Trunk;
+import sun.invoke.empty.Empty;
 import exit.*;
 import items.*;
 
@@ -37,7 +38,7 @@ public class CastleGenerator {
         Room DiningRoom = new Room("The dining room next the entrance","diningroom",0,null,null); 
 
         // Cuisine avec coffre sans ennemi
-        Trunk KitchenTrunk = new Trunk(); // ------> Arme (Baton) dans celui la 
+        Trunk KitchenTrunk = new Trunk(); 
         KitchenTrunk.addItem(new Stick(20,5,"Stick","Stick which can be used as weapon")); 
         Room Kitchen = new Room("Kitchen next the entrance","kitchen",0,KitchenTrunk,null);
 
@@ -45,7 +46,7 @@ public class CastleGenerator {
         Room Cellar = new Room("Cellar next the kitchen","cellar",0,null,new Armor(70,10));
 
         // salle de bal avec coffre normal et sans ennemi
-        Trunk BalTrunk = new Trunk(); // ------> Clé dans celui la 
+        Trunk BalTrunk = new Trunk(); 
         BalTrunk.addItem(new DoorKey("doorkey","A key which can open a locked door")); 
         Room BallRoom = new Room("Ballroom next the entrance of the castle","ballroom",0,BalTrunk,null); 
 
@@ -53,7 +54,7 @@ public class CastleGenerator {
         Room Tavern = new Room("An old tavern","tavern",0,null,null); 
 
         // Terrasse avec coffre et sans ennemi 
-        Trunk TerraceTrunk = new Trunk(); // ------> Objet de Soin dans celui la 
+        Trunk TerraceTrunk = new Trunk(); 
         TerraceTrunk.addItem(new HealObject(20,5,"HealObject","An item which can heal you")); 
         Room Terrace = new Room("Terrace next the ballroom","Terrace",0,TerraceTrunk,null); 
         
@@ -95,27 +96,34 @@ public class CastleGenerator {
         Room Hallway = new Room("A long hallway","hallway",1,null,null); 
         
         // Deluxe Room with locked door with trunk and no ennemy
-        Trunk DeluxeTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
+        Trunk DeluxeTrunk = new Trunk(); a 
         DeluxeTrunk.addItem(new TrunkKey("trunkkey","A key which can open a locked trunk")); 
         Room DeluxeRoom = new Room("A deluxe room which greats and luxury decorations","deluxeroom",1,DeluxeTrunk,null); 
         
         
         //BedRoom with trunk and no ennemy
-        Trunk BedroomTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
+        Trunk BedroomTrunk = new Trunk(); 
         BedroomTrunk.addItem(new Axe(25,5,"Axe","A mighty axe")); 
         Room Bedroom = new Room("A basic room with a pile of straw as bed","bedroom",1,BedroomTrunk,null);
 
 
         //A big empty room with trunk and A MIGHTY ennemy
-        Trunk EmptyRoomTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
+        Trunk EmptyRoomTrunk = new Trunk(); 
         EmptyRoomTrunk.addItem(new HealObject(45,5,"HealObject","An special item which can heal you after your rude fight")); 
         Room EmptyRoom = new Room("A big empty room with a big armor","emptyroom",1,EmptyRoomTrunk,new Armor(120,18));
+
+
+        //A  room with trunk and A MIGHTY ennemy
+        LockableTrunk LivingRoomTrunk = new LockableTrunk(); 
+        LivingRoomTrunk.addItem(new HealObject(45,5,"HealObject","An item which can heal you")); 
+        Room LivingRoom = new Room("A big living room with large sofa","livingroom",1,LivingRoomTrunk,null);
         
         
            /** PORTES **/
         LockedDoor Hallway_DeluxeRoom = new LockedDoor(Hallway,DeluxeRoom);  
         Door Hallway_Bedroom = new Door(Hallway,Bedroom);  
         OneWayDoor Hallway_EmptyRoom = new OneWayDoor(Hallway,EmptyRoom);  
+        Door EmptyRoom_LivingRoom = new Door(EmptyRoom,LivingRoom); 
 
         
            /** SORTIES **/ 
@@ -128,17 +136,18 @@ public class CastleGenerator {
         
         Hallway.setExit(Hallway_EmptyRoom);
        // EmptyRoom.setExit(Hallway_EmptyRoom);
+
+        LivingRoom.setExit(EmptyRoom_LivingRoom);
+        EmptyRoom.setExit(EmptyRoom_LivingRoom);
         
         
         
         
         
-        /*** STAIRS *****/
+        /*** STAIRS BETWEEN THE GROUND FLOOR AND THE FIRST FLOOR *****/
         Stairs WinterGarden_Hallway = new Stairs(WinterGarden,Hallway); 
          
-        
-        
-        /** STAIRS' EXITS **/
+         /** STAIRS' EXITS **/
         WinterGarden.setExit(WinterGarden_Hallway);         
         Hallway.setExit(WinterGarden_Hallway); 
         
