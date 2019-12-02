@@ -10,7 +10,7 @@ import items.*;
 /*
  * GameGenerator
  */
-public class CastleGenerator {
+public class CastleGenerator { 
 
     
     private static Trunk generateTrunk(TakeableItem i){
@@ -101,18 +101,22 @@ public class CastleGenerator {
         
         
         //BedRoom with trunk and no ennemy
-    /*    Trunk DeluxeTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
-        DeluxeTrunk.addItem(new TrunkKey("trunkkey","A key which can open a locked trunk")); 
-        Room DeluxeRoom = new Room("A deluxe room which greats and luxury decorations","deluxeroom",1,DeluxeTrunk,null); */
+        Trunk BedroomTrunk = new Trunk(); // ------> Clé de coffre dans celui la 
+        BedroomTrunk.addItem(new Axe(25,5,"Axe","A mighty axe")); 
+        Room Bedroom = new Room("A basic room with a pile of straw as bed","Bedroom",1,BedroomTrunk,null);
         
         
            /** PORTES **/
         LockedDoor Hallway_DeluxeRoom = new LockedDoor(Hallway,DeluxeRoom);  
+        Door Hallway_Bedroom = new Door(Hallway,Bedroom);  
         
            /** SORTIES **/ 
             
         Hallway.setExit(Hallway_DeluxeRoom);
         DeluxeRoom.setExit(Hallway_DeluxeRoom);
+
+        Hallway.setExit(Hallway_Bedroom);
+        Bedroom.setExit(Hallway_Bedroom);
         
         
         
