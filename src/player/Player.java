@@ -12,7 +12,7 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
     private Bag BAG;
     private int hp;
     private final int MAX_HP = 100;
-    private static int NO_WEAPON_DAMAGE;
+    private static int NO_WEAPON_DAMAGE = 15;
 
     /**
      * 
