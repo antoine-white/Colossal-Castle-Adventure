@@ -104,6 +104,14 @@ public class Game {
 		return this.PLAYER.getLampIsOn();
 	}
 
+	public int getPlayerHp(){
+		return this.PLAYER.getHp();
+	}
+
+	public Collection<TakeableItem> getBagItems(){
+		return this.PLAYER.getBAG().getItems();
+	}
+
 	public Room getPlayerActualRoom() {
 		return this.playerActualRoom;
 	}

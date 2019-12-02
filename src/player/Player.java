@@ -60,6 +60,13 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
         return this.LAMP.getIsOn();
     }
 
+    /**
+     * @return the bAG
+     */
+    public Bag getBAG() {
+        return this.BAG;
+    }
+
     @Override
     public void heal(int nbHp) {
         this.hp += nbHp;
@@ -74,7 +81,6 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
             this.activeWeapon = w;
         } 
     }
-
     /*
      * @Override public boolean receiveItem(TakeableItem tItem) { if(tItem
      * instanceof HealObject && this.hp < this.MAX_HP){ this.hp +=

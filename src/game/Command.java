@@ -16,7 +16,8 @@ public enum Command {
     QUIT("help quit","QUIT",0,0,(g,args)->Command.quit(g)),
     USE("help use","USE",1,2,(g,args)->Command.quit(g)),
     SEARCH("help search","SEARCH",0,0,(g,args)->Command.search(g)),
-    SEARCH_EXITS("help search exits","SEARCH_EXITS",0,0,(g,args)->Command.searchExits(g));
+    SEARCH_EXITS("help search exits","SEARCH_EXITS",0,0,(g,args)->Command.searchExits(g)),
+    INVENTORY("help inventory","INVENTORY",0,0,(g,args)->Command.printInventory(g));
     
     private final String HELP_STR;
     private final String COMMAND_STR;
@@ -58,6 +59,8 @@ public enum Command {
         c.function.runCommand(g,args);
     }
 
+
+    //TO FIX : test key
     public static void go(Game g, String placeStr) {
         Map<String,Exit> exits = g.getPlayerActualRoom().getExits(g.playerLampIsOn());
         for (Map.Entry<String, Exit> exit : exits.entrySet()) {
@@ -105,10 +108,17 @@ public enum Command {
 
     // TODO:
     public static void search(Game g) {
-
+        Storage tmp = g.getPlayerActualRoom().getStorage();
+        if (tmp != null) {
+            Printer.printMessage("Items in this room : ");
+            for (TakeableItem item : tmp.getItems()) {
+                Printer.printMessage("name = " + item.getNAME() + " description = " + item.readDescription());
+            }   
+        } else {
+            Printer.printMessage("Any Item in this room");
+        }
     }
 
-    // TODO:
     public static void searchExits(Game g) {
         Printer.printMessage("Exits visible in this room : ");
         Map<String,Exit> exits = g.getPlayerActualRoom().getExits(g.playerLampIsOn());
@@ -117,6 +127,17 @@ public enum Command {
         }
     }
 
-    
+    public static void printInventory(Game g){
+        Printer.printMessage("You have " + g.getPlayerHp() + "hp.");
+        Collection<TakeableItem> items = g.getBagItems();
+        if (items.size() == 0) {
+            Printer.printMessage("You have nothing in your bag");
+        } else {
+            Printer.printMessage("You have those items in your bag : ");
+            for(TakeableItem tItem : items){
+                Printer.printMessage( "name = " + tItem.getNAME() + " description = " + tItem.readDescription());
+            }
+        }        
+    }
 
 }
