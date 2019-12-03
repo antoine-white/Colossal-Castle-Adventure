@@ -10,8 +10,8 @@ public class LockedDoor extends Door implements Lockable, CanTakeItem {
     private boolean isLock;
     
     /**
-     * @param P1
-     * @param P2
+     * @param P1 the first place it give access to
+     * @param P2 the second place it give access to
      */
     public LockedDoor(Place P1, Place P2) {
         super(P1, P2);
@@ -26,7 +26,8 @@ public class LockedDoor extends Door implements Lockable, CanTakeItem {
     }
 
     /**
-     *
+     * unlock the door kiven a key
+     * @param k a key to unlock the Door
      */
     public void unlock(Key k) {
         if (k instanceof DoorKey) {
@@ -36,7 +37,7 @@ public class LockedDoor extends Door implements Lockable, CanTakeItem {
     
     /**
      * 
-     * @return 
+     * @return if the door is locked
      */
     @Override
     public boolean getIsLocked() {
