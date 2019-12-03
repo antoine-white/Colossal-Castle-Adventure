@@ -19,12 +19,13 @@ public abstract class Item implements Describable {
 	
 	/**
 	 * 
-	 * @return
+	 * @return the name of the item
 	 */
 	public String getNAME() {
 		return this.NAME;
 	}
 
+	@Override
 	public String readDescription() {
 		return this.DESCRIPTION;
 	}

@@ -51,9 +51,12 @@ public class HealObject extends TakeableItem {
 
     @Override
     public boolean use(CanTakeItem o) {
+        //try to cast the receiver of the item to Healable
         try {
+            // if it worked we heal the receiver and return true
             ((Healable) o).heal(this.getNB_HP_HEALED());
         } catch (Exception e) {
+            // otherwise we return false
             return false;
         }
         return true;

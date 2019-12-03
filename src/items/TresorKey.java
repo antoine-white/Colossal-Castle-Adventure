@@ -4,8 +4,8 @@ public class TresorKey extends TrunkKey {
 
     /**
      * 
-     * @param name
-     * @param description
+     * @param name name of the key
+     * @param description description of the key
      */
     public TresorKey(String name, String description) {
         super(name, description);

@@ -8,8 +8,8 @@ public abstract class Key extends TakeableItem {
 
     /**
      * 
-     * @param name
-     * @param description
+     * @param name name of the key
+     * @param description description of the key
      */
     public Key(String name, String description) {
         super(Key.KEY_VOLUME, name, description);
