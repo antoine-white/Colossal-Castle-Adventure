@@ -10,12 +10,12 @@ import storage.*;
 import place.*;
 
 public enum Command {
-    GO("help go", "GO", 1, 1, (g, args) -> Command.go(g, args[0])),
+    GO("help go : You have to write go + the name of the room you want to go. Exemple -> go ballroom", "GO", 1, 1, (g, args) -> Command.go(g, args[0])),
     HELP("help help", "HELP", 0, 0, (g, args) -> Printer.printMessage(Command.getHelp())),
-    LOOK("help look", "LOOK", 0, 1, (g, args) -> Command.look(g, args)),
-    TAKE("help take : ", "TAKE", 1, 1, (g, args) -> Command.take(g, args[0])),
-    QUIT("help quit", "QUIT", 0, 0, (g, args) -> Command.quit(g)),
-    USE("help use", "USE", 1, 2, (g, args) -> Command.use(g, args)),
+    LOOK("help look : This command shows you all items in the room you are ", "LOOK", 0, 1, (g, args) -> Command.look(g, args)),
+    TAKE("help take : You have to write take + the name of the item you want to take.It will put it in your bag. Exemple -> take axe", "TAKE", 1, 1, (g, args) -> Command.take(g, args[0])),
+    QUIT("help quit : This command is here to quit the game", "QUIT", 0, 0, (g, args) -> Command.quit(g)),
+    USE("help use : This command allows you to use an item in your bag.You have to write use + the name of the item. Exemple -> use axe. You can also use this command to open a locked door or a locked trunk, so you have to write use + name of the item + name of the room of use + name of the item + trunk. Exemple -> use doorkey ballroom, use trunkkey trunk", "USE", 1, 2, (g, args) -> Command.use(g, args)),
     SEARCH("help search", "SEARCH", 0, 0, (g, args) -> Command.search(g)),
     SEARCH_EXITS("help search exits", "SEARCH_EXITS", 0, 0, (g, args) -> Command.searchExits(g)),
     INVENTORY("help inventory", "INVENTORY", 0, 0, (g, args) -> Command.printInventory(g)),
