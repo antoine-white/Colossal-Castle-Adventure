@@ -16,10 +16,10 @@ public enum Command {
     TAKE("help take : You have to write take + the name of the item you want to take.It will put it in your bag. Exemple -> take axe", "TAKE", 1, 1, (g, args) -> Command.take(g, args[0])),
     QUIT("help quit : This command is here to quit the game", "QUIT", 0, 0, (g, args) -> Command.quit(g)),
     USE("help use : This command allows you to use an item in your bag.You have to write use + the name of the item. Exemple -> use axe. You can also use this command to open a locked door or a locked trunk, so you have to write use + name of the item + name of the room of use + name of the item + trunk. Exemple -> use doorkey ballroom, use trunkkey trunk", "USE", 1, 2, (g, args) -> Command.use(g, args)),
-    SEARCH("help search", "SEARCH", 0, 0, (g, args) -> Command.search(g)),
-    SEARCH_EXITS("help search exits", "SEARCH_EXITS", 0, 0, (g, args) -> Command.searchExits(g)),
-    INVENTORY("help inventory", "INVENTORY", 0, 0, (g, args) -> Command.printInventory(g)),
-    LAMP("help lamp","LAMP",0,0,(g,args) -> g.changeLampStatus());
+    SEARCH("help search : This command shows you all items in the room", "SEARCH", 0, 0, (g, args) -> Command.search(g)),
+    SEARCH_EXITS("help search exits : This command shows you all room that you can go next the place you are ", "SEARCH_EXITS", 0, 0, (g, args) -> Command.searchExits(g)),
+    INVENTORY("help inventory : This command shows you your hp, the state of your lamp, the weapon equiped, and all the key do you have", "INVENTORY", 0, 0, (g, args) -> Command.printInventory(g)),
+    LAMP("help lamp : This command switch on or switch off your lamp. IMPORTANT, if your lamp is on, you can find secret access like secret room. The lamp switch off automatically when you go to an other room","LAMP",0,0,(g,args) -> g.changeLampStatus());
 
     private final String HELP_STR;
     private final String COMMAND_STR;
