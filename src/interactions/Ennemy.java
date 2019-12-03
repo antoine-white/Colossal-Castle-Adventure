@@ -2,23 +2,24 @@ package interactions;
 
 public abstract class Ennemy {
 
-    private int hp;
-    private static int DEFAULT_HP;
-    private static int DEFAULT_DAMAGE;
+    private int hp;    
     private int damage;
 
+    private static int DEFAULT_HP;
+    private static int DEFAULT_DAMAGE;
+
     /**
-     * 
+     * create an ennemy with Ennemy.DEFAULT_HP and
+     *  Ennemy.DEFAULT_DAMAGE
      */
     public Ennemy() {
-        this.hp = DEFAULT_HP;
-        this.damage = DEFAULT_DAMAGE;
+        this(Ennemy.DEFAULT_HP, Ennemy.DEFAULT_DAMAGE);
     }
 
     /**
      * 
-     * @param hp
-     * @param damage
+     * @param hp the health point of the new Armor 
+     * @param damage the damage the armor gives each time he hits
      */
     public Ennemy(int hp, int damage) {
         this.hp = hp;
@@ -27,7 +28,8 @@ public abstract class Ennemy {
 
     /**
      * 
-     * @return
+     * @return the damage the ennemy is supposed to hit unless he is dead
+     * in witch case it's 0
      */
     public int attack() {
         if (this.hp > 0) {
@@ -39,7 +41,7 @@ public abstract class Ennemy {
 
     /**
      * 
-     * @param damage
+     * @param damage the damage he takes
      * @return the number of hp remaining after the attack
      */
     public int attacked(int damage) {
@@ -49,7 +51,5 @@ public abstract class Ennemy {
 
     @Override
     abstract public String toString();
-
-    
 
 }
