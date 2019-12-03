@@ -39,8 +39,8 @@ public class CastleGenerator {
 
         // Terrace with a trunk and no ennemy 
         Trunk TerraceTrunk = new Trunk(); 
-        TerraceTrunk.addItem(new HealObject(20,5,"HealObject","An item which can heal you")); 
-        Room Terrace = new Room("A pretty large terrace ","Terrace",0,TerraceTrunk,null); 
+        TerraceTrunk.addItem(new HealObject(20,5,"bandage","An item which can heal you")); 
+        Room Terrace = new Room("A pretty large terrace ","terrace",0,TerraceTrunk,null); 
         
         // Winter garden without trunk and one ennemy 
         Room WinterGarden = new Room("A Winter garden with a lot of tree and a small pond","wintergarden",0,null,new Skeleton(50,20)); 
@@ -91,19 +91,19 @@ public class CastleGenerator {
         
         //BedRoom with trunk and no ennemy
         Trunk BedroomTrunk = new Trunk(); 
-        BedroomTrunk.addItem(new Axe(25,5,"Axe","A mighty axe")); 
+        BedroomTrunk.addItem(new Axe(25,5,"axe","A mighty axe")); 
         Room Bedroom = new Room("A basic room with a pile of straw as bed","bedroom",1,BedroomTrunk,null);
 
 
         //A big empty room with trunk and A MIGHTY ennemy
         LockableTrunk EmptyRoomTrunk = new LockableTrunk(); 
-        EmptyRoomTrunk.addItem(new HealObject(45,5,"HealObject","An special item which can heal you after your rude fight")); 
+        EmptyRoomTrunk.addItem(new HealObject(45,5,"bandage","An special item which can heal you after your rude fight")); 
         Room EmptyRoom = new Room("A big empty room with a big armor","emptyroom",1,EmptyRoomTrunk,new Armor(120,18));
 
 
         //A room with trunk and without ennemy
         Trunk LivingRoomTrunk = new Trunk(); 
-        LivingRoomTrunk.addItem(new HealObject(20,5,"HealObject","An item which can heal you")); 
+        LivingRoomTrunk.addItem(new HealObject(20,5,"bandage","An item which can heal you")); 
         Room LivingRoom = new Room("A big living room with large sofa","livingroom",1,LivingRoomTrunk,new Skeleton(50,10));
         
         
