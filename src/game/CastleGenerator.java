@@ -1,6 +1,5 @@
 package game;
 
-import java.util.*;
 import interactions.*;
 import place.*;
 import storage.*;

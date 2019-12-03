@@ -27,17 +27,6 @@ public class Game {
 	}
 
 	/**
-	 * 
-	 * @param path the path of the file the castle is loaded from
-	 */
-	public Game(String path) {
-		this.playerActualRoom = CastleGenerator.generateCastle(path);
-		this.PLAYER = new Player(new Lamp(), new Bag());
-		this.isGameOver = false;
-		this.scanner = new Scanner(System.in);
-	}
-
-	/**
 	 * put isGameOver to true and stoped the game
 	 */
 	public void quitGame() {

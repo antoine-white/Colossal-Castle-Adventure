@@ -105,7 +105,6 @@ public enum Command {
         g.quitGame();
     }
 
-    // TODO:
     public static void take(Game g, String itemStr) {
         Storage tmp = g.getPlayerActualRoom().getStorage();
         if (tmp != null) {
@@ -129,7 +128,6 @@ public enum Command {
 
     }
 
-    // TODO:
     public static void use(Game g, String[] args) {
         Collection<TakeableItem> tItems = g.getBagItems();
         TakeableItem selectedItem = null;
@@ -159,6 +157,7 @@ public enum Command {
                             } catch (Exception e) {
                                 Printer.printError("Can not use item on this exit");
                             }
+                            return;
                         }
                     }
                     Printer.printMessage("can not find something to use this item on that is called " + args[1]);

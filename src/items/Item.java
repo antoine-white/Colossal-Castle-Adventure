@@ -9,8 +9,8 @@ public abstract class Item implements Describable {
 
 	/**
 	 * 
-	 * @param name
-	 * @param description
+	 * @param name name of the item
+	 * @param description its description
 	 */
 	public Item(String name, String description) {
 		this.NAME = name;
