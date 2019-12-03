@@ -89,7 +89,8 @@ public class Game {
 		Printer.printMessage("⚔ You encontered an ennnemy " + e.toString() + " ⚔");
 		do {
 			this.PLAYER.attacked(e.attack());
-			Printer.printMessage("The ennemy attacked you and dealt " + e.attack() + " damage you have " + this.PLAYER.getHp() +"hp remaininig");
+			Printer.printMessage("The ennemy attacked you and dealt " + e.attack() + " damage you have " + 
+				(this.PLAYER.getHp() > 0 ? this.PLAYER.getHp() : 0 ) +"hp remaininig");
 			if (this.PLAYER.getHp() > 0){
 				Printer.printMessage("you attack the ennemy and dealt " + this.PLAYER.attack() + " damage");
 				e.attacked(this.PLAYER.attack());
@@ -130,5 +131,9 @@ public class Game {
 
 	public boolean useItemOnPlayer(TakeableItem tItem){
 		return tItem.use(this.PLAYER);
+	}
+
+	public void changeLampStatus(){
+		this.PLAYER.changeLampStatus();
 	}
 }

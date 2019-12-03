@@ -93,4 +93,12 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
      * ((Weapon)tItem); return true; } else { return false; } }
      */
 
+	public void changeLampStatus() {
+        if (this.LAMP.getIsOn()) {
+            this.LAMP.switchOffLamp();
+        } else {
+            this.LAMP.switchOnLamp();
+        }
+	}
+
 }

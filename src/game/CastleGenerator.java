@@ -95,7 +95,7 @@ public class CastleGenerator {
         Room Hallway = new Room("A long hallway","hallway",1,null,null); 
         
         // Deluxe Room with locked door with trunk and no ennemy
-        Trunk DeluxeTrunk = new Trunk(); a 
+        Trunk DeluxeTrunk = new Trunk();
         DeluxeTrunk.addItem(new TrunkKey("trunkkey","A key which can open a locked trunk")); 
         Room DeluxeRoom = new Room("A deluxe room which greats and luxury decorations","deluxeroom",1,DeluxeTrunk,null); 
         

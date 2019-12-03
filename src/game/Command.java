@@ -1,7 +1,6 @@
 package game;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import exit.Exit;
 import interfaces.Lockable;
@@ -18,7 +17,8 @@ public enum Command {
     USE("help use", "USE", 1, 2, (g, args) -> Command.use(g, args)),
     SEARCH("help search", "SEARCH", 0, 0, (g, args) -> Command.search(g)),
     SEARCH_EXITS("help search exits", "SEARCH_EXITS", 0, 0, (g, args) -> Command.searchExits(g)),
-    INVENTORY("help inventory", "INVENTORY", 0, 0, (g, args) -> Command.printInventory(g));
+    INVENTORY("help inventory", "INVENTORY", 0, 0, (g, args) -> Command.printInventory(g)),
+    LAMP("help lamp","LAMP",0,0,(g,args) -> g.changeLampStatus());
 
     private final String HELP_STR;
     private final String COMMAND_STR;
@@ -143,7 +143,12 @@ public enum Command {
                 g.useItemOnPlayer(selectedItem);
                 g.removeItemBag(selectedItem);
             } else {
-
+                if (args[1].contains("trunk")){
+                    g.getPlayerActualRoom().getStorage();
+                } else{
+                    //check if args[1] is an exit
+                }
+                g.removeItemBag(selectedItem);
             }
         } else {
             Printer.printMessage("Can not found this item in your bag");
@@ -184,6 +189,7 @@ public enum Command {
         if (weapon != null) {
             Printer.printMessage("weapon : " + weapon.getNAME() + "; damage = " + weapon.attack());
         }        
+        Printer.printMessage("Your lamp is " + (g.playerLampIsOn() ? "on" : "off"));
         Collection<TakeableItem> items = g.getBagItems();
         if (items.size() == 0) {
             Printer.printMessage("You have nothing in your bag");
