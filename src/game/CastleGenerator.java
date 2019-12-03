@@ -11,42 +11,42 @@ import items.*;
  * GameGenerator
  */
 public class CastleGenerator { 
-    
+   
     public static Room generateCastle(){      
      
         /************************************************************************  GROUND FLOOR  ************************************************************************/
         
-        // Piece d'arrivée le hall, sans rien
+        // First room without anything 
         Room Entrance = new Room("Castle's Entrance. A large room with a huge golden door ","entrance",0,null,null); 
 
-        // Salle a manger sans coffre ni ennemi 
+        // Dining room without anything
         Room DiningRoom = new Room("A dining room which contains a long table covered with dishes and several silver chairs","diningroom",0,null,null); 
 
-        // Cuisine avec coffre sans ennemi
+        // Kitchen without anything 
         Trunk KitchenTrunk = new Trunk(); 
         KitchenTrunk.addItem(new Stick(20,5,"Stick","Massive stick in woods which can be used as weapon")); 
         Room Kitchen = new Room("A Large kitchen which can be used by several employees at the same time next the entrance","kitchen",0,KitchenTrunk,null);
 
-        // Cellier sans coffre avec ennemi armure 
+        // Cellar without anything 
         Room Cellar = new Room("A small cellar without many lights next the kitchen","cellar",0,null,new Armor(70,10));
 
-        // salle de bal avec coffre normal et sans ennemi
+        // ballroom with trunk and no ennemy
         Trunk BalTrunk = new Trunk(); 
         BalTrunk.addItem(new DoorKey("doorkey","A key which can open a locked door")); 
         Room BallRoom = new Room("A huge ballroom with a lot of chandelier and beautiful tiling","ballroom",0,BalTrunk,null); 
 
-        // Taverne sans coffre et sans ennemi
+        // Tavern without anything 
         Room Tavern = new Room("An old tavern fulfil of alcohol bottles of all kinds","tavern",0,null,null); 
 
-        // Terrasse avec coffre et sans ennemi 
+        // Terrace with a trunk and no ennemy 
         Trunk TerraceTrunk = new Trunk(); 
         TerraceTrunk.addItem(new HealObject(20,5,"HealObject","An item which can heal you")); 
         Room Terrace = new Room("A pretty large terrace ","Terrace",0,TerraceTrunk,null); 
         
-        // Jardin d'hiver sans coffre et avec ennemi 
+        // Winter garden without trunk and one ennemy 
         Room WinterGarden = new Room("A Winter garden with a lot of tree and a small pond","wintergarden",0,null,new Skeleton(50,20)); 
 
-            /** PORTES **/
+            /** DOORS **/
         Door Entrance_DiningRoom = new Door(Entrance,DiningRoom);  
         Door Entrance_BallRoom = new Door(Entrance,BallRoom); 
         Door Entrance_WinterGarden = new Door(Entrance,WinterGarden); 
@@ -56,7 +56,7 @@ public class CastleGenerator {
         Door BallRoom_Terrace = new Door(BallRoom,Terrace); 
        
             
-           /** SORTIES **/ 
+           /** EXITS**/ 
             
         Entrance.setExit(Entrance_DiningRoom);
         DiningRoom.setExit(Entrance_DiningRoom);
@@ -108,14 +108,14 @@ public class CastleGenerator {
         Room LivingRoom = new Room("A big living room with large sofa","livingroom",1,LivingRoomTrunk,new Skeleton(50,10));
         
         
-           /** PORTES **/
+           /** DOORS **/
         LockedDoor Hallway_DeluxeRoom = new LockedDoor(Hallway,DeluxeRoom);  
         Door Hallway_Bedroom = new Door(Hallway,Bedroom);  
         OneWayDoor Hallway_EmptyRoom = new OneWayDoor(Hallway,EmptyRoom);  
         
 
         
-           /** SORTIES **/ 
+           /** EXITS **/ 
             
         Hallway.setExit(Hallway_DeluxeRoom);
         DeluxeRoom.setExit(Hallway_DeluxeRoom);
@@ -168,7 +168,7 @@ public class CastleGenerator {
         HiddenRoom TresorKeyRoom = new HiddenRoom("A hole in the wall which reveals the hidden room","hiddenroom",2,TresorKeyTrunk,null); 
 
         
-         /** PORTES **/
+         /** DOORS **/
         OneWayDoor ArtGallery_SecondHallway = new OneWayDoor(ArtGallery,SecondHallway);
         Door Library_SecondHallway = new Door(Library,SecondHallway); 
         Door MusicRoom_SecondHallway = new Door(MusicRoom,SecondHallway); 
@@ -176,7 +176,7 @@ public class CastleGenerator {
          
  
          
-        /** SORTIES **/ 
+        /** EXITS **/ 
         ArtGallery.setExit(ArtGallery_SecondHallway); 
          
         Library.setExit(Library_SecondHallway);
@@ -203,49 +203,8 @@ public class CastleGenerator {
 
         LivingRoom.setExit(LivingRoom_SmallEmptyRoom); 
         SmallEmptyRoom.setExit(LivingRoom_SmallEmptyRoom); 
-
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-           /** ESCALIERS  **/
         
         return Entrance;
-    }
-
-    /**
-     * Genarate a game from a file
-     * 
-     * @param path
-     */
-    public static Room generateCastle(String path) {
-        // TODO :
-        return null;
     }
 
 }
