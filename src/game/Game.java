@@ -48,7 +48,6 @@ public class Game {
 	 * the method where all the game takes place
 	 */
 	public void runGame() {
-		//TEMP: System.out.println("hello there");
 		do {
 			Printer.printMessage("Enter next command : ");
 			Interpreter.interpreter(this, this.scanner.nextLine());
@@ -76,7 +75,8 @@ public class Game {
 	 */
 	public void newRoomEntered(Place place) {
 		this.playerActualRoom = ((Room)place);
-		if (this.playerActualRoom.getEnnemy() != null) {
+		Ennemy ennemy = this.playerActualRoom.getEnnemy();
+		if (ennemy != null && ennemy.attacked(0) > 0) {
 			this.handleCombat(this.playerActualRoom.getEnnemy());
 		}
 	}
