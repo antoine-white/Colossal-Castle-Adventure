@@ -11,21 +11,6 @@ import items.*;
  * GameGenerator
  */
 public class CastleGenerator { 
-
-    
-    private static Trunk generateTrunk(TakeableItem i){
-        Trunk t = new Trunk(); 
-        t.addItem(i); 
-        return t; 
-    }
-        
-    private static Trunk generateTrunk(TakeableItem[] tab){
-        Trunk t = new Trunk(); 
-        for(TakeableItem i : tab){
-            t.addItem(i); 
-        }
-        return t; 
-    }
     
     public static Room generateCastle(){      
      
