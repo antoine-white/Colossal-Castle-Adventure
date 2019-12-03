@@ -28,7 +28,7 @@ public class CastleGenerator {
     }
     
     public static Room generateCastle(){
-        /***************************************  REZ DE CHAUSSEE DU CHATEAU *********************************************/
+        /************************************************************************  GROUND FLOOR  ************************************************************************/
         
         // Piece d'arrivée le hall, sans rien
         Room Entrance = new Room("Castle's Entrance ","entrance",0,null,null); 
@@ -67,6 +67,7 @@ public class CastleGenerator {
         Door Tavern_BallRoom = new Door(BallRoom,Tavern); 
         Door DiningRoom_Kitchen = new Door(DiningRoom,Kitchen); 
         Door Kitchen_Cellar = new Door(Kitchen,Cellar); 
+        Door BallRoom_Terrace = new Door(BallRoom,Terrace); 
        
             
            /** SORTIES **/ 
@@ -85,11 +86,14 @@ public class CastleGenerator {
         
         BallRoom.setExit(Tavern_BallRoom);
         Tavern.setExit(Tavern_BallRoom); 
+
+        BallRoom.setExit(BallRoom_Terrace); 
+        Terrace.setExit(BallRoom_Terrace); 
         
         Kitchen.setExit(Kitchen_Cellar);
         Cellar.setExit(Kitchen_Cellar);
         
-        /*****************************************  FIRST FLOOR  **************************************/
+        /************************************************************************  FIRST FLOOR  ************************************************************************/
         
         // Hallway without trunk and ennemy 
         Room Hallway = new Room("A long hallway","hallway",1,null,null); 
@@ -107,22 +111,22 @@ public class CastleGenerator {
 
 
         //A big empty room with trunk and A MIGHTY ennemy
-        Trunk EmptyRoomTrunk = new Trunk(); 
+        LockableTrunk EmptyRoomTrunk = new LockableTrunk(); 
         EmptyRoomTrunk.addItem(new HealObject(45,5,"HealObject","An special item which can heal you after your rude fight")); 
         Room EmptyRoom = new Room("A big empty room with a big armor","emptyroom",1,EmptyRoomTrunk,new Armor(120,18));
 
 
-        //A  room with trunk and A MIGHTY ennemy
-        LockableTrunk LivingRoomTrunk = new LockableTrunk(); 
-        LivingRoomTrunk.addItem(new HealObject(45,5,"HealObject","An item which can heal you")); 
-        Room LivingRoom = new Room("A big living room with large sofa","livingroom",1,LivingRoomTrunk,null);
+        //A room with trunk and without ennemy
+        Trunk LivingRoomTrunk = new Trunk(); 
+        LivingRoomTrunk.addItem(new HealObject(20,5,"HealObject","An item which can heal you")); 
+        Room LivingRoom = new Room("A big living room with large sofa","livingroom",1,LivingRoomTrunk,new Skeleton(50,10));
         
         
            /** PORTES **/
         LockedDoor Hallway_DeluxeRoom = new LockedDoor(Hallway,DeluxeRoom);  
         Door Hallway_Bedroom = new Door(Hallway,Bedroom);  
         OneWayDoor Hallway_EmptyRoom = new OneWayDoor(Hallway,EmptyRoom);  
-        Door EmptyRoom_LivingRoom = new Door(EmptyRoom,LivingRoom); 
+        
 
         
            /** SORTIES **/ 
@@ -136,24 +140,83 @@ public class CastleGenerator {
         Hallway.setExit(Hallway_EmptyRoom);
        // EmptyRoom.setExit(Hallway_EmptyRoom);
 
-        LivingRoom.setExit(EmptyRoom_LivingRoom);
-        EmptyRoom.setExit(EmptyRoom_LivingRoom);
-        
-        
-        
-        
         
         /*** STAIRS BETWEEN THE GROUND FLOOR AND THE FIRST FLOOR *****/
         Stairs WinterGarden_Hallway = new Stairs(WinterGarden,Hallway); 
+        Stairs Tavern_LivingRoom = new Stairs(Tavern,LivingRoom); 
          
          /** STAIRS' EXITS **/
         WinterGarden.setExit(WinterGarden_Hallway);         
         Hallway.setExit(WinterGarden_Hallway); 
+
+        Tavern.setExit(Tavern_LivingRoom); 
+        LivingRoom.setExit(Tavern_LivingRoom); 
+
+
+         /************************************************************************  SECOND FLOOR  ************************************************************************/
+        // Art gallery with a trunk and no ennemy
+        Trunk ArtGalleryTrunk = new Trunk(); 
+        ArtGalleryTrunk.addItem(new TrunkKey("trunkkey","A beautiful key which seems to be used in order to open a locked trunk")); 
+        Room ArtGallery = new Room("A large room full of paintings and works of art","artgallery",2,ArtGalleryTrunk,null);
         
+        // Hallway without trunk and ennemy 
+        Room SecondHallway = new Room("A long hallway","hallway",2,null,null); 
         
+        // Library with a locked trunk and without ennemy
+        LockableTrunk LibraryTrunk = new LockableTrunk(); 
+        LibraryTrunk.addItem(new DoorKey("doorkey","A grey key a bit rusty which can be used to open a locked door")); 
+        Room Library = new Room("A huge library with all kinds of books","library",2,LibraryTrunk,null); 
         
+        // Music room without trunk and an ennemy
+        Room MusicRoom = new Room("A large room fullfil of musical instruments","musicroom",2,null,new Armor(75,25)); 
+
+
+        // Small empty room without anything 
+        Room SmallEmptyRoom = new Room("A small empty room","smallroom",2,null,null); 
+
+        // HIDDEN ROOM WITH THE TRESOR KEY 
+        TresorTrunk TresorTrunk = new TresorTrunk();
+        TresorTrunk.addItem(new TresorKey("tresorkey","A big key which a luxurious key with a lot of ornaments")); 
+        HiddenRoom TresorKeyRoom = new HiddenRoom("A hole in the wall which reveals the hidden room","hiddenroom",2,TresorTrunk,null); 
+
         
-        
+         /** PORTES **/
+        OneWayDoor ArtGallery_SecondHallway = new OneWayDoor(ArtGallery,SecondHallway);
+        Door Library_SecondHallway = new Door(Library,SecondHallway); 
+        Door MusicRoom_SecondHallway = new Door(MusicRoom,SecondHallway); 
+        SecretExit SmallEmptyRoom_TresorKeyRoom = new SecretExit(SmallEmptyRoom,TresorKeyRoom); 
+         
+ 
+         
+        /** SORTIES **/ 
+        ArtGallery.setExit(ArtGallery_SecondHallway); 
+         
+        Library.setExit(Library_SecondHallway);
+        SecondHallway.setExit(Library_SecondHallway); 
+
+        MusicRoom.setExit(MusicRoom_SecondHallway); 
+        SecondHallway.setExit(MusicRoom_SecondHallway); 
+
+        SmallEmptyRoom.setExit(SmallEmptyRoom_TresorKeyRoom); 
+        TresorKeyRoom.setExit(SmallEmptyRoom_TresorKeyRoom); 
+
+
+        /*** STAIRS BETWEEN THE FIRST FLOOR AND THE SECOND FLOOR *****/
+        Stairs ArtGallery_EmptyRoom = new Stairs(ArtGallery,EmptyRoom); 
+        Stairs SecondHallway_Hallway = new Stairs(SecondHallway,Hallway); 
+        Stairs LivingRoom_SmallEmptyRoom = new Stairs(LivingRoom,SmallEmptyRoom); 
+         
+         /** STAIRS' EXITS **/
+        ArtGallery.setExit(ArtGallery_EmptyRoom); 
+        EmptyRoom.setExit(ArtGallery_EmptyRoom); 
+
+        Hallway.setExit(SecondHallway_Hallway); 
+        SecondHallway.setExit(SecondHallway_Hallway); 
+
+        LivingRoom.setExit(LivingRoom_SmallEmptyRoom); 
+        SmallEmptyRoom.setExit(LivingRoom_SmallEmptyRoom); 
+
+
         
         
         
