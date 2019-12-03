@@ -19,7 +19,7 @@ public enum Command {
     SEARCH("help search : This command shows you all items in the room", "SEARCH", 0, 0, (g, args) -> Command.search(g)),
     SEARCH_EXITS("help search exits : This command shows you all room that you can go next the place you are ", "SEARCH_EXITS", 0, 0, (g, args) -> Command.searchExits(g)),
     INVENTORY("help inventory : This command shows you your hp, the state of your lamp, the weapon equiped, and all the key do you have", "INVENTORY", 0, 0, (g, args) -> Command.printInventory(g)),
-    LAMP("help lamp : This command switch on or switch off your lamp. IMPORTANT, if your lamp is on, you can find secret access like secret room. The lamp switch off automatically when you go to an other room","LAMP",0,0,(g,args) -> g.changeLampStatus());
+    LAMP("help lamp : This command switch on or switch off your lamp. IMPORTANT, if your lamp is on, you can find secret access like secret room.","LAMP",0,0,(g,args) -> g.changeLampStatus());
 
     private final String HELP_STR;
     private final String COMMAND_STR;

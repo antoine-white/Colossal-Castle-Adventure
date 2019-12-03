@@ -63,8 +63,10 @@ public class Game {
 			if (this.PLAYER.getHp() <= 0){
 				this.isGameOver = true;
 				Printer.printMessage("You are dead 😭😭");
+			} else if(this.PLAYER.hasTresor()){
+				this.isGameOver = true;
+				Printer.printMessage("You have won🎉🎉🏆🏆. You found the tresor");
 			}
-			 // TODO : test if the player has the tresor
 		}
 	}
 

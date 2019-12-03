@@ -85,13 +85,10 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
             this.activeWeapon = w;
         } 
     }
-    /*
-     * @Override public boolean receiveItem(TakeableItem tItem) { if(tItem
-     * instanceof HealObject && this.hp < this.MAX_HP){ this.hp +=
-     * ((HealObject)tItem).getNB_HP_HEALED(); return true; } else
-     * if(this.activeWeapon == null && tItem instanceof Weapon){ this.activeWeapon =
-     * ((Weapon)tItem); return true; } else { return false; } }
-     */
+    
+    public boolean hasTresor(){
+        return this.BAG.getItems().stream().filter(e->e instanceof Tresor).count() > 0;
+    }
 
 	public void changeLampStatus() {
         if (this.LAMP.getIsOn()) {
