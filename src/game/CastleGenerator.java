@@ -169,12 +169,12 @@ public class CastleGenerator {
         Room Library = new Room("A huge library with all kinds of books","library",2,LibraryTrunk,null); 
         
         // Music room without trunk and an ennemy
-        Room MusicRoom = new Room("A large room fullfil of musical instruments","musicroom",2,null,new Armor(75,25)); 
+        TresorTrunk TresorTrunk = new TresorTrunk(); 
+        TresorTrunk.addItem(new Tresor(1,"tresor","An large amount of golden coins, a lot of diamonds and emeralds with some jewelry")); 
+        Room MusicRoom = new Room("A large room fullfil of musical instruments","musicroom",2,TresorTrunk,null); 
 
 
         // Small empty room without anything 
-        TresorTrunk TresorTrunk = new TresorTrunk(); 
-        TresorTrunk.addItem(new Tresor(1,"tresor","An large amount of golden coins, a lot of diamonds and emeralds with some jewelry")); 
         Room SmallEmptyRoom = new Room("A small empty room","smallroom",2,null,null); 
 
         // HIDDEN ROOM WITH THE TRESOR KEY 
