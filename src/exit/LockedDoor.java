@@ -1,10 +1,11 @@
 package exit;
 
-import place.Place;
-import interfaces.Lockable;
+import place.*;
+import interfaces.*;
 import items.*;
 
-public class LockedDoor extends Door implements Lockable {
+
+public class LockedDoor extends Door implements Lockable, CanTakeItem {
 
     private boolean isLock;
     

@@ -2,10 +2,11 @@ package game;
 
 import java.util.*;
 
-import exit.Exit;
+import exit.*;
+import interfaces.CanTakeItem;
 import interfaces.Lockable;
 import items.*;
-import storage.Storage;
+import storage.*;
 import place.*;
 
 public enum Command {
@@ -82,7 +83,7 @@ public enum Command {
 
     public static void look(Game g, String[] itemStr) {
         if (itemStr.length == 0) {
-            Printer.printMessage(g.getPlayerActualRoom().readDescription());
+            Printer.printMessage(g.getPlayerActualRoom().readDescription() + " at the "+ g.getPlayerActualRoom().getLevel() + " floor");
         } else {
             boolean foundItem = false;
             Storage tmp = g.getPlayerActualRoom().getStorage();
@@ -144,9 +145,23 @@ public enum Command {
                 g.removeItemBag(selectedItem);
             } else {
                 if (args[1].contains("trunk")){
-                    g.getPlayerActualRoom().getStorage();
+                    try {
+                        selectedItem.use(((CanTakeItem)g.getPlayerActualRoom().getStorage()));
+                    } catch (Exception e) {
+                        Printer.printError("Can not use item on the storage");
+                    }                    
                 } else{
-                    //check if args[1] is an exit
+                    Map<String, Exit> exits = g.getPlayerActualRoom().getExits(g.playerLampIsOn());
+                    for (Map.Entry<String, Exit> exit : exits.entrySet()) {
+                        if (exit.getKey().contains(args[1])) {
+                            try {
+                                selectedItem.use((CanTakeItem)exit.getValue());
+                            } catch (Exception e) {
+                                Printer.printError("Can not use item on this exit");
+                            }
+                        }
+                    }
+                    Printer.printMessage("can not find something to use this item on that is called " + args[1]);
                 }
                 g.removeItemBag(selectedItem);
             }
