@@ -27,38 +27,39 @@ public class CastleGenerator {
         return t; 
     }
     
-    public static Room generateCastle(){
+    public static Room generateCastle(){      
+     
         /************************************************************************  GROUND FLOOR  ************************************************************************/
         
         // Piece d'arrivée le hall, sans rien
-        Room Entrance = new Room("Castle's Entrance ","entrance",0,null,null); 
+        Room Entrance = new Room("Castle's Entrance. A large room with a huge golden door ","entrance",0,null,null); 
 
         // Salle a manger sans coffre ni ennemi 
-        Room DiningRoom = new Room("The dining room next the entrance","diningroom",0,null,null); 
+        Room DiningRoom = new Room("A dining room which contains a long table covered with dishes and several silver chairs","diningroom",0,null,null); 
 
         // Cuisine avec coffre sans ennemi
         Trunk KitchenTrunk = new Trunk(); 
-        KitchenTrunk.addItem(new Stick(20,5,"Stick","Stick which can be used as weapon")); 
-        Room Kitchen = new Room("Kitchen next the entrance","kitchen",0,KitchenTrunk,null);
+        KitchenTrunk.addItem(new Stick(20,5,"Stick","Massive stick in woods which can be used as weapon")); 
+        Room Kitchen = new Room("A Large kitchen which can be used by several employees at the same time next the entrance","kitchen",0,KitchenTrunk,null);
 
         // Cellier sans coffre avec ennemi armure 
-        Room Cellar = new Room("Cellar next the kitchen","cellar",0,null,new Armor(70,10));
+        Room Cellar = new Room("A small cellar without many lights next the kitchen","cellar",0,null,new Armor(70,10));
 
         // salle de bal avec coffre normal et sans ennemi
         Trunk BalTrunk = new Trunk(); 
         BalTrunk.addItem(new DoorKey("doorkey","A key which can open a locked door")); 
-        Room BallRoom = new Room("Ballroom next the entrance of the castle","ballroom",0,BalTrunk,null); 
+        Room BallRoom = new Room("A huge ballroom with a lot of chandelier and beautiful tiling","ballroom",0,BalTrunk,null); 
 
         // Taverne sans coffre et sans ennemi
-        Room Tavern = new Room("An old tavern","tavern",0,null,null); 
+        Room Tavern = new Room("An old tavern fulfil of alcohol bottles of all kinds","tavern",0,null,null); 
 
         // Terrasse avec coffre et sans ennemi 
         Trunk TerraceTrunk = new Trunk(); 
         TerraceTrunk.addItem(new HealObject(20,5,"HealObject","An item which can heal you")); 
-        Room Terrace = new Room("Terrace next the ballroom","Terrace",0,TerraceTrunk,null); 
+        Room Terrace = new Room("A pretty large terrace ","Terrace",0,TerraceTrunk,null); 
         
         // Jardin d'hiver sans coffre et avec ennemi 
-        Room WinterGarden = new Room("A Winter garden next the entrance","wintergarden",0,null,new Skeleton(50,20)); 
+        Room WinterGarden = new Room("A Winter garden with a lot of tree and a small pond","wintergarden",0,null,new Skeleton(50,20)); 
 
             /** PORTES **/
         Door Entrance_DiningRoom = new Door(Entrance,DiningRoom);  
@@ -172,12 +173,14 @@ public class CastleGenerator {
 
 
         // Small empty room without anything 
+        TresorTrunk TresorTrunk = new TresorTrunk(); 
+        TresorTrunk.addItem(new Tresor(1,"tresor","An large amount of golden coins, a lot of diamonds and emeralds with some jewelry")); 
         Room SmallEmptyRoom = new Room("A small empty room","smallroom",2,null,null); 
 
         // HIDDEN ROOM WITH THE TRESOR KEY 
-        TresorTrunk TresorTrunk = new TresorTrunk();
-        TresorTrunk.addItem(new TresorKey("tresorkey","A big key which a luxurious key with a lot of ornaments")); 
-        HiddenRoom TresorKeyRoom = new HiddenRoom("A hole in the wall which reveals the hidden room","hiddenroom",2,TresorTrunk,null); 
+        Trunk TresorKeyTrunk = new Trunk();
+        TresorKeyTrunk.addItem(new TresorKey("tresorkey","A luxurious gold key with a lot of ornaments and a ruby in the midlle ")); 
+        HiddenRoom TresorKeyRoom = new HiddenRoom("A hole in the wall which reveals the hidden room","hiddenroom",2,TresorKeyTrunk,null); 
 
         
          /** PORTES **/
