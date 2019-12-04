@@ -27,6 +27,17 @@ public class Game {
 	}
 
 	/**
+	 * 
+	 * @param path the path of the file the castle is loaded from
+	 */
+	public Game(String path) {
+		this.playerActualRoom = CastleGenerator.generateCastle(path);
+		this.PLAYER = new Player(new Lamp(), new Bag());
+		this.isGameOver = false;
+		this.scanner = new Scanner(System.in);
+	}
+
+	/**
 	 * put isGameOver to true and stoped the game
 	 */
 	public void quitGame() {
@@ -77,7 +88,7 @@ public class Game {
 	 * @param e the ennemy the player is fighting against
 	 */
 	private void handleCombat(Ennemy e) {
-		Printer.printMessage("⚔ You encontered an ennnemy " + e.toString() + " ⚔");
+		Printer.printMessage("⚔ You encontered an ennemy " + e.toString() + " ⚔");
 		do {
 			this.PLAYER.attacked(e.attack());
 			Printer.printMessage("The ennemy attacked you and dealt " + e.attack() + " damage you have " + 
