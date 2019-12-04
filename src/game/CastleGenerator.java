@@ -96,8 +96,8 @@ public class CastleGenerator {
 
 
         //A big empty room with trunk and A MIGHTY ennemy
-        LockableTrunk EmptyRoomTrunk = new LockableTrunk(); 
-        EmptyRoomTrunk.addItem(new HealObject(45,5,"bandage","An special item which can heal you after your rude fight")); 
+        LockableTrunk EmptyRoomTrunk = new LockableTrunk(new HealObject(45,5,"bandage","An special item which can heal you after your rude fight")); 
+       // EmptyRoomTrunk.addItem(new HealObject(45,5,"bandage","An special item which can heal you after your rude fight")); 
         Room EmptyRoom = new Room("A big empty room with a big armor","emptyroom",1,EmptyRoomTrunk,new Armor(120,18));
 
 
@@ -148,13 +148,13 @@ public class CastleGenerator {
         Room SecondHallway = new Room("A long hallway","hallway",2,null,null); 
         
         // Library with a locked trunk and without ennemy
-        LockableTrunk LibraryTrunk = new LockableTrunk(); 
-        LibraryTrunk.addItem(new DoorKey("doorkey","A grey key a bit rusty which can be used to open a locked door")); 
+        LockableTrunk LibraryTrunk = new LockableTrunk(new DoorKey("doorkey","A grey key a bit rusty which can be used to open a locked door")); 
+        // LibraryTrunk.addItem(new DoorKey("doorkey","A grey key a bit rusty which can be used to open a locked door")); 
         Room Library = new Room("A huge library with all kinds of books","library",2,LibraryTrunk,null); 
         
         // Music room without trunk and an ennemy
-        TresorTrunk TresorTrunk = new TresorTrunk(); 
-        TresorTrunk.addItem(new Tresor(1,"tresor","An large amount of golden coins, a lot of diamonds and emeralds with some jewelry")); 
+        TresorTrunk TresorTrunk = new TresorTrunk(new Tresor(1,"tresor","An large amount of golden coins, a lot of diamonds and emeralds with some jewelry")); 
+        //TresorTrunk.addItem(); 
         Room MusicRoom = new Room("A large room fullfil of musical instruments","musicroom",2,TresorTrunk,null); 
 
 

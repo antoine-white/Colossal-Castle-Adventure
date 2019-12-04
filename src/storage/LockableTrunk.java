@@ -26,6 +26,13 @@ public class LockableTrunk extends Trunk implements Lockable,CanTakeItem {
 		this.isLocked = true;
 	}
 
+	/**
+	 * create a new LockableTrunk with Trunk.DEFAULT_CAP_TRUNK capacity
+	 */
+	public LockableTrunk(TakeableItem initialItem) {
+		super();
+		super.addItem(initialItem);
+	}
 
 	/**
 	 * unlock the Trunk
@@ -47,6 +54,10 @@ public class LockableTrunk extends Trunk implements Lockable,CanTakeItem {
 	 */
 	public boolean getIsLocked() {
 		return this.isLocked;
+	}
+
+	protected void addItemToLock(TakeableItem newItem){
+		super.addItem(newItem);
 	}
 
 	/**
@@ -93,7 +104,7 @@ public class LockableTrunk extends Trunk implements Lockable,CanTakeItem {
 	public Collection<TakeableItem> getItems() {
 		if (this.getIsLocked()) {
 			return null;
-		} else {	
+		} else {				
 			return super.getItems();
 		}
 	}

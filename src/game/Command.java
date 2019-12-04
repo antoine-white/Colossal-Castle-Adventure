@@ -145,6 +145,7 @@ public enum Command {
                 if (args[1].contains("trunk")){
                     try {
                         selectedItem.use(((CanTakeItem)g.getPlayerActualRoom().getStorage()));
+                        g.removeItemBag(selectedItem);
                     } catch (Exception e) {
                         Printer.printError("Can not use item on the storage");
                     }                    
@@ -154,6 +155,7 @@ public enum Command {
                         if (exit.getKey().contains(args[1])) {
                             try {
                                 selectedItem.use((CanTakeItem)exit.getValue());
+                                g.removeItemBag(selectedItem);
                             } catch (Exception e) {
                                 Printer.printError("Can not use item on this exit");
                             }
@@ -162,7 +164,6 @@ public enum Command {
                     }
                     Printer.printMessage("can not find something to use this item on that is called " + args[1]);
                 }
-                g.removeItemBag(selectedItem);
             }
         } else {
             Printer.printMessage("Can not found this item in your bag");
