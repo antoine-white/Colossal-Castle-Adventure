@@ -1,4 +1,4 @@
-Colossal Castle Adventure
+Colossal Castle aAdventure
 
 to play
 In the main folder use this command : 

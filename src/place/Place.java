@@ -21,7 +21,7 @@ public abstract class Place {
 
     /**
      *
-     * @return le nom de la place
+     * @return name of the place 
      */
     public String getName() {
         return this.name;
@@ -29,10 +29,11 @@ public abstract class Place {
 
     /**
      * 
-     * @param lampOn regarde si la lampe est allumé pour savoir si on voit les
-     *               sorties secrettes
-     * @return la Map<String,Exit> de sortie de la piece
-     */
+     * @param lampOn if the lamp is on find hidden room
+     * @return the Map of String and Exit 
+     * 
+     * 
+    */
     public Map<String, Exit> getExits(boolean lampOn) {
         Map<String, Exit> tmp = new HashMap<>();
         if (lampOn) {
@@ -41,6 +42,7 @@ public abstract class Place {
             }
         } else {
             for (Exit e : this.EXITS) {
+                // this should not be handle here
                 if (!(e instanceof SecretExit)) {
                     tmp.put(e.getNextPlace(this).name, e);
                 }
@@ -52,7 +54,7 @@ public abstract class Place {
 
     /**
      *
-     * @param e ajoute une sortie à la place
+     * @param e add an exit the place
      */
     public void setExit(Exit e) {
         this.EXITS.add(e);

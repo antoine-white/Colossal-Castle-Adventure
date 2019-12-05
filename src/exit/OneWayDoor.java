@@ -1,19 +1,3 @@
-/*package exit;
-
-import place.Place;
-
-public class OneWayDoor extends Door {
-
-	private Place beforePlace;
-        
-        
- 
-	public OneWayDoor(Place beforePlace, Place P2) {
-            super(beforePlace, P2);
-	}
-
-}*/
-
 package exit;
 
 import place.Place;

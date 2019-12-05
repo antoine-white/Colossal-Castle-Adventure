@@ -32,7 +32,7 @@ public class Room extends Place implements Describable {
 
     /**
      * 
-     * @return le coffre s'il y en a un dans la piece
+     * @return the Trunk if there is on in the room otherwise null
      */
     public Storage getStorage() {
         return this.STORAGE;
@@ -40,7 +40,7 @@ public class Room extends Place implements Describable {
 
     /**
      *
-     * @return l'ennemie s'il y en a un dans la piece
+     * @return the enemy if there is on in the room otherwise null
      */
     public Ennemy getEnnemy() {
         return this.ENEMY;
@@ -48,7 +48,7 @@ public class Room extends Place implements Describable {
 
     /**
      *
-     * @return le niveau de l'étage où se trouve la room
+     * @return le floor the room is at
      */
     public int getLevel() {
     	return this.LEVEL;
