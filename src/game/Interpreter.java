@@ -4,6 +4,14 @@ import java.util.Arrays;
 
 public class Interpreter {
 
+	/**
+	 * given a string it split it into substrings with space and 
+	 * lauch a command with the first substring as the command and 
+	 * the other as arguments, if the command exists and the number 
+	 * of parameters is correct for this command
+	 * @param g
+	 * @param str
+	 */
 	public static void interpreter(Game g, String str) {
 		String[] words = str.split(" ");
 		Command c = Command.strToCmd(words[0]);

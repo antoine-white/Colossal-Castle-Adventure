@@ -35,6 +35,12 @@ public enum Command {
         this.function = fct;
     }
 
+    /**
+     * 
+     * @param str 
+     * @return a command if the string correspond to one of COMMAND_STR or COMMAND_STR in lower case
+     * returns null otherwise
+     */
     public static Command strToCmd(String str) {
         Command tCommand = null;
         for (Command c : Command.values()) {
@@ -45,10 +51,20 @@ public enum Command {
         return tCommand;
     }
 
+    /**
+     * 
+     * @param c a command 
+     * @param nbParam the number of parameters that you want to apply to the command
+     * @return if the number of parameters is possible for this command
+     */
     public static boolean hasCorrectParameters(Command c, int nbParam) {
         return nbParam >= c.MIN_PARAM && nbParam <= c.MAX_PARAM;
     }
 
+    /**
+     * 
+     * @return a string that is the addition of HELP_STR  of all Command
+     */
     public static String getHelp() {
         String returnString = "";
         for (Command c : Command.values()) {
@@ -56,11 +72,21 @@ public enum Command {
         }
         return returnString;
     }
-
+    /**
+     * run the command with a given game and argument
+     * @param g
+     * @param c
+     * @param args
+     */
     public static void runCommand(Game g, Command c, String[] args) {
         c.function.runCommand(g, args);
     }
 
+    /**
+     * move the player to a new room named placeStr if possible
+     * @param g
+     * @param placeStr the name of the room
+     */
     public static void go(Game g, String placeStr) {
         Map<String, Exit> exits = g.getPlayerActualRoom().getExits(g.playerLampIsOn());
         for (Map.Entry<String, Exit> exit : exits.entrySet()) {
@@ -81,6 +107,11 @@ public enum Command {
         Printer.printError("Could not find a exit to a place named " + placeStr + " in this room");
     }
 
+    /**
+     * read the description of the item named itemStr if it's possible
+     * @param g
+     * @param itemStr
+     */
     public static void look(Game g, String[] itemStr) {
         if (itemStr.length == 0) {
             Printer.printMessage(g.getPlayerActualRoom().readDescription() + " at the "+ g.getPlayerActualRoom().getLevel() + " floor");
@@ -101,10 +132,19 @@ public enum Command {
         }
     }
 
+    /**
+     * quit the game without any confirmation
+     * @param g
+     */
     public static void quit(Game g) {
         g.quitGame();
     }
 
+    /**
+     * put a object named itemStr in the player bag if possible
+     * @param g
+     * @param itemStr
+     */
     public static void take(Game g, String itemStr) {
         Storage tmp = g.getPlayerActualRoom().getStorage();
         if (tmp != null) {
@@ -128,6 +168,14 @@ public enum Command {
 
     }
 
+    /**
+     * use an item in the bag as the argument;
+     * if there is no second argument it uses it on the player himself 
+     * otherwise it uses it on a trunk if the second parameters and 
+     * else it's on a exit
+     * @param g
+     * @param args
+     */
     public static void use(Game g, String[] args) {
         Collection<TakeableItem> tItems = g.getBagItems();
         TakeableItem selectedItem = null;
@@ -171,6 +219,10 @@ public enum Command {
 
     }
 
+    /**
+     * look for takeableItem in this room and print their name if possible
+     * @param g
+     */
     public static void search(Game g) {
         Storage tmp = g.getPlayerActualRoom().getStorage();
         if (tmp != null) {
@@ -190,6 +242,10 @@ public enum Command {
         }
     }
 
+    /**
+     * look for Exit in this room and print the room they give access to if possible
+     * @param g
+     */
     public static void searchExits(Game g) {
         Printer.printMessage("Exits visible in this room : ");
         Map<String, Exit> exits = g.getPlayerActualRoom().getExits(g.playerLampIsOn());
@@ -198,6 +254,14 @@ public enum Command {
         }
     }
 
+    /**
+     * print :
+     * the Health Point of he player
+     * his current weapon if he has one
+     * the state of his lamp
+     * all items in his bag with its description
+     * @param g
+     */
     public static void printInventory(Game g) {
         Printer.printMessage("You have " + g.getPlayerHp() + "hp.");
         Weapon weapon = g.getPlayerWeapon();

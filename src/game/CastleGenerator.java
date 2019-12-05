@@ -11,6 +11,11 @@ import items.*;
  */
 public class CastleGenerator { 
    
+    /**
+     * 
+     * @return the first room of the castle linked with all 
+     * the remaining room of the castle 
+     */
     public static Room generateCastle(){      
      
         /************************************************************************  GROUND FLOOR  ************************************************************************/
