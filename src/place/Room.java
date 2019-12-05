@@ -7,10 +7,10 @@ import storage.Storage;
 
 public class Room extends Place implements Describable {
 
-    private Storage storage;
-    private Ennemy ennemy;
-    private int level;
-    private String description;
+    private final Storage STORAGE;
+    private final Ennemy ENEMY;
+    private final int LEVEL;
+    private final String DESCRIPTION;
     
     /**
      * Constructor
@@ -24,10 +24,10 @@ public class Room extends Place implements Describable {
     public Room(String description, String name, int level, 
         Storage store, Ennemy ennemies) {
         super(name);
-        this.level = level;
-        this.ennemy = ennemies;
-        this.storage = store;
-        this.description = description;
+        this.LEVEL = level;
+        this.ENEMY = ennemies;
+        this.STORAGE = store;
+        this.DESCRIPTION = description;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Room extends Place implements Describable {
      * @return le coffre s'il y en a un dans la piece
      */
     public Storage getStorage() {
-        return this.storage;
+        return this.STORAGE;
     }
 
     /**
@@ -43,7 +43,7 @@ public class Room extends Place implements Describable {
      * @return l'ennemie s'il y en a un dans la piece
      */
     public Ennemy getEnnemy() {
-        return this.ennemy;
+        return this.ENEMY;
     }
 
     /**
@@ -51,7 +51,7 @@ public class Room extends Place implements Describable {
      * @return le niveau de l'étage où se trouve la room
      */
     public int getLevel() {
-    	return this.level;
+    	return this.LEVEL;
     }
 
     /**
@@ -60,6 +60,6 @@ public class Room extends Place implements Describable {
      */
     @Override
     public String readDescription() {
-        return this.description;
+        return this.DESCRIPTION;
     }
 }
