@@ -16,8 +16,8 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
 
     /**
      * 
-     * @param LAMP
-     * @param BAG
+     * @param LAMP the lamp the player use
+     * @param BAG his bag
      */
     public Player(Lamp LAMP, Bag BAG) {
         this.LAMP = LAMP;
@@ -28,7 +28,7 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
 
     /**
      * 
-     * @return
+     * @return the damage the player does at each hit
      */
     public int attack() {
         if (activeWeapon != null) {
@@ -40,8 +40,8 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
 
     /**
      * 
-     * @param damage
-     * @return
+     * @param damage damage taken
+     * @return his hp after the attack
      */
     public int attacked(int damage) {
         this.hp -= damage;
@@ -50,7 +50,7 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
 
     /**
      * 
-     * @return
+     * @return his current hp
      */
     public int getHp() {
         return this.hp;
@@ -86,6 +86,10 @@ public class Player implements Healable , CanTakeItem, CanTakeWeapon{
         } 
     }
     
+    /**
+     * 
+     * @return if the player has the tresor in his bag
+     */
     public boolean hasTresor(){
         return this.BAG.getItems().stream().filter(e->e instanceof Tresor).count() > 0;
     }
